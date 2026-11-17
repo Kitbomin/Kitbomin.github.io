@@ -1,1 +1,1921 @@
-[]
+[
+ {
+  "title": "자연어 처리 － 구문 분석",
+  "slug": "자연어-처리-－-구문-분석",
+  "link": "https://velog.io/@zzxxcc1433/%EC%9E%90%EC%97%B0%EC%96%B4-%EC%B2%98%EB%A6%AC-%EF%BC%8D-%EA%B5%AC%EB%AC%B8-%EB%B6%84%EC%84%9D",
+  "date": "2026-06-18",
+  "summary": "자연어 처리(NLP)에서 문장의 정확한 의미를 도출하기 위해서는 단어의 품사를 파악하는 수준을 넘어, 문장을 구성하는 요소들이 어떠한 문법적 관계를 맺고 있는지 분석해야 한다. 이를 수행하는 핵심 기술이 구문 분석이다. 구문 분석(Parsing)이란…",
+  "tags": [
+   "이론",
+   "인공지능",
+   "자연어처리"
+  ],
+  "series": "자연어처리",
+  "topics": [
+   "ai"
+  ],
+  "featured": false
+ },
+ {
+  "title": "자연어 처리 - 어휘 분석 및 형태소 분석과 품사 태깅(POS Tagging)의 이해",
+  "slug": "자연어-처리-어휘-분석-및-형태소-분석과-품사-태깅POS-Tagging의-이해",
+  "link": "https://velog.io/@zzxxcc1433/%EC%9E%90%EC%97%B0%EC%96%B4-%EC%B2%98%EB%A6%AC-%EC%96%B4%ED%9C%98-%EB%B6%84%EC%84%9D-%EB%B0%8F-%ED%98%95%ED%83%9C%EC%86%8C-%EB%B6%84%EC%84%9D%EA%B3%BC-%ED%92%88%EC%82%AC-%ED%83%9C%EA%B9%85POS-Tagging%EC%9D%98-%EC%9D%B4%ED%95%B4",
+  "date": "2026-06-18",
+  "summary": "자연어 처리(NLP)에서 컴퓨터가 텍스트의 의미를 올바르게 파악하기 위해서는 단어 수준의 구조를 식별하는 어휘 분석이 선행되어야 한다. 이를 구성하는 핵심 과정이 바로 형태소 분석과 품사 태깅이다. 어휘 분석이란 단어의 구조를 식별하고, 분석을 통해…",
+  "tags": [
+   "이론",
+   "인공지능",
+   "자연어처리"
+  ],
+  "series": "자연어처리",
+  "topics": [
+   "ai"
+  ],
+  "featured": true
+ },
+ {
+  "title": "자연어 처리 - 비정형 데이터 내의 오류와 전처리: 텍스트 변환, 띄어쓰기 및 맞춤법 교정",
+  "slug": "자연어-처리-비정형-데이터-내의-오류와-전처리-텍스트-변환-띄어쓰기-및-맞춤법-교정",
+  "link": "https://velog.io/@zzxxcc1433/%EC%9E%90%EC%97%B0%EC%96%B4-%EC%B2%98%EB%A6%AC-%EB%B9%84%EC%A0%95%ED%98%95-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%82%B4%EC%9D%98-%EC%98%A4%EB%A5%98%EC%99%80-%EC%A0%84%EC%B2%98%EB%A6%AC-%ED%85%8D%EC%8A%A4%ED%8A%B8-%EB%B3%80%ED%99%98-%EB%9D%84%EC%96%B4%EC%93%B0%EA%B8%B0-%EB%B0%8F-%EB%A7%9E%EC%B6%A4%EB%B2%95-%EA%B5%90%EC%A0%95",
+  "date": "2026-06-17",
+  "summary": "비정형 데이터(Unstructured Data)란 일정한 규격이나 형태를 지닌 숫자 데이터(Numeric data)와 달리, 그림, 영상, 문서처럼 형태와 구조가 다르고 구조화되지 않은 데이터를 의미한다. 음성 정보, 동영상 정보, 시각 정보 등이…",
+  "tags": [
+   "이론",
+   "인공지능",
+   "자연어처리"
+  ],
+  "series": "자연어처리",
+  "topics": [
+   "ai"
+  ],
+  "featured": false
+ },
+ {
+  "title": "자연어 처리 - NLP의 근간이 되는 언어학의 기본 원리: 단위, 구조, 의미론과 화용론",
+  "slug": "자연어-처리-NLP의-근간이-되는-언어학의-기본-원리-단위-구조-의미론과-화용론",
+  "link": "https://velog.io/@zzxxcc1433/%EC%9E%90%EC%97%B0%EC%96%B4-%EC%B2%98%EB%A6%AC-NLP%EC%9D%98-%EA%B7%BC%EA%B0%84%EC%9D%B4-%EB%90%98%EB%8A%94-%EC%96%B8%EC%96%B4%ED%95%99%EC%9D%98-%EA%B8%B0%EB%B3%B8-%EC%9B%90%EB%A6%AC-%EB%8B%A8%EC%9C%84-%EA%B5%AC%EC%A1%B0-%EC%9D%98%EB%AF%B8%EB%A1%A0%EA%B3%BC-%ED%99%94%EC%9A%A9%EB%A1%A0",
+  "date": "2026-06-17",
+  "summary": "컴퓨터가 자연어를 처리하기 위해서는 인간이 사용하는 언어의 최소 단위와 그 구성 체계를 먼저 이해해야 한다. 언어를 이루는 단위는 크게 음절, 형태소, 어절, 품사로 나뉜다. 언어를 말하고 들을 때, 하나의 덩어리로 여겨지는 가장 작은 발화의 최소…",
+  "tags": [
+   "이론",
+   "인공지능",
+   "자연어처리"
+  ],
+  "series": "자연어처리",
+  "topics": [
+   "ai"
+  ],
+  "featured": false
+ },
+ {
+  "title": "졸업작품 주제 2",
+  "slug": "졸업작품-주제-2",
+  "link": "https://velog.io/@zzxxcc1433/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EC%A3%BC%EC%A0%9C-2",
+  "date": "2026-03-19",
+  "summary": "[프로젝트 기획서] 심층 강화학습을 이용한 AMR의 에너지 상태별 동적 경로 선택 전략 : Unity 시뮬레이션 기반의 DQN+PER 알고리즘 최적화 및 성능 분석 1. 프로젝트 개요 배경: 스마트 팩토리 및 물류 창고 내 AMR 도입이 급증하고 있…",
+  "tags": [],
+  "series": null,
+  "topics": [],
+  "featured": false
+ },
+ {
+  "title": "졸업작품 주제",
+  "slug": "졸업작품-주제",
+  "link": "https://velog.io/@zzxxcc1433/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EC%A3%BC%EC%A0%9C",
+  "date": "2026-03-19",
+  "summary": "소방차량의 신속한 화재 현장 도착을 위한 Q러닝 기반의 최적경로 탐색2일 행정안전부에 따르면 국가정보자원관리원이 2016년 8월∼2017년 7월 대전 시내 긴급차량의 출동 위치정보 3000만건을 ‘인공지능(AI) 기계학습’으로 분석한 결과 긴급차량이…",
+  "tags": [],
+  "series": null,
+  "topics": [],
+  "featured": false
+ },
+ {
+  "title": "자연어 처리 - 정의와 발전 패러다임의 이해",
+  "slug": "자연어-처리-정의와-발전-패러다임의-이해",
+  "link": "https://velog.io/@zzxxcc1433/%EC%9E%90%EC%97%B0%EC%96%B4-%EC%B2%98%EB%A6%AC-%EC%A0%95%EC%9D%98%EC%99%80-%EB%B0%9C%EC%A0%84-%ED%8C%A8%EB%9F%AC%EB%8B%A4%EC%9E%84%EC%9D%98-%EC%9D%B4%ED%95%B4",
+  "date": "2026-03-16",
+  "summary": "1. 자연어 처리의 정의 자연어(Natural Language)란 사람들이 사회생활에서 자연스럽게 발생하여 사용하는 언어를 의미함. 이는 컴퓨터에게 명령을 내리기 위해 제약을 더해 만든 프로그래밍 언어와 같은 인공 언어와 대비되는 개념이다. 자연어…",
+  "tags": [
+   "이론",
+   "인공지능",
+   "자연어처리"
+  ],
+  "series": "자연어처리",
+  "topics": [
+   "ai"
+  ],
+  "featured": false
+ },
+ {
+  "title": "FullStack - Major Community 1) 기획, 설계 및 환경 세팅",
+  "slug": "FullStack-Major-Community-1-기획-설계-및-환경-세팅",
+  "link": "https://velog.io/@zzxxcc1433/FullStack-Major-Community-1-%EA%B8%B0%ED%9A%8D-%EC%84%A4%EA%B3%84-%EB%B0%8F-%ED%99%98%EA%B2%BD-%EC%84%B8%ED%8C%85",
+  "date": "2026-01-27",
+  "summary": "국비 과정을 수료한 이후, 해당 과정에서 배운점들을 토대로 학교의 후배들과 간단한 프로젝트들을 시작하기로 했다. 학과 후배들은 나에게서 웹개발 기술을, 나는 이들을 지도하며 학원에서 배운 기술과 전공 수업때 배운 것들을 합쳐 다시 익힐 수 있는 기회…",
+  "tags": [],
+  "series": "Major-Community-proj",
+  "topics": [
+   "fullstack"
+  ],
+  "featured": true
+ },
+ {
+  "title": "Do it 알고리즘 코딩테스트 자바 11659",
+  "slug": "Do-it-알고리즘-코딩테스트-자바-11659",
+  "link": "https://velog.io/@zzxxcc1433/Do-it-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9E%90%EB%B0%94-11659",
+  "date": "2025-11-19",
+  "summary": "백준 11659(구간 합 구하기 4)은 가장 기본적인 누적합(Prefix Sum) 문제다. 입력으로 N개의 숫자가 주어지고, M개의 구간(i, j)의 합을 빠르게 출력해야 한다. 이 문제는 단순히 정답만 맞추는 것을 넘어서,입력 처리 방식과 시간 효…",
+  "tags": [
+   "코딩테스트"
+  ],
+  "series": "코딩테스트",
+  "topics": [
+   "algorithm"
+  ],
+  "featured": false
+ },
+ {
+  "title": "Do it 알고리즘 코딩테스트 자바 1546",
+  "slug": "Do-it-알고리즘-코딩테스트-자바-1546",
+  "link": "https://velog.io/@zzxxcc1433/Do-it-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9E%90%EB%B0%94-1546",
+  "date": "2025-11-19",
+  "summary": "백준 1546번 문제는 과목 점수를 최대값 기준으로 재정의하여 평균을 구하는 문제다. 문제 자체는 단순하지만 입력 처리, 타입 변환, 평균 계산 방식 등에서 구현 방법이 많이 갈릴 수 있다. 이번 글에서는 내가 작성한 코드와 모범답안 코드를 비교하며…",
+  "tags": [
+   "코딩테스트"
+  ],
+  "series": "코딩테스트",
+  "topics": [
+   "algorithm"
+  ],
+  "featured": false
+ },
+ {
+  "title": "FullStackProj - BoardProj 1) 세팅 및 환경설정 - Back",
+  "slug": "FullStackProj-BoardProj-1-세팅-및-환경설정-Back",
+  "link": "https://velog.io/@zzxxcc1433/FullStackProj-BoardProj-1-%EC%84%B8%ED%8C%85-%EB%B0%8F-%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95-Back",
+  "date": "2025-11-18",
+  "summary": "해당 글은 게시판 프로젝트의 백엔드 기본 세팅 과정과 주요 엔터티 구조를 정리한 기록이다. 프로젝트를 다시 복습하기 위한 목적이며, 각 구성 요소별 역할을 명확히 정리한다. 프로젝트는 프론트와 백을 명확하게 분리한 형태로 구성된다. Spring Bo…",
+  "tags": [
+   "Fullstack",
+   "React",
+   "Spring boot",
+   "mysql",
+   "vite"
+  ],
+  "series": "FullStack-BoardProj",
+  "topics": [
+   "fullstack"
+  ],
+  "featured": false
+ },
+ {
+  "title": "Do it 알고리즘 코딩테스트 자바 11720",
+  "slug": "Do-it-알고리즘-코딩테스트-자바-11720",
+  "link": "https://velog.io/@zzxxcc1433/Do-it-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9E%90%EB%B0%94-11720",
+  "date": "2025-11-14",
+  "summary": "백준 11720번 문제는 겉보기에는 매우 쉬운 합계 문제다.“공백 없이 이어진 숫자들을 입력받아 모두 더한다”는 단순한 요구사항을 갖고 있다. 하지만 나는 처음에 입력을 정수로 처리하려다 inputMismatchException을 맞았고,두 번째 시…",
+  "tags": [
+   "코딩테스트"
+  ],
+  "series": "코딩테스트",
+  "topics": [
+   "algorithm"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React 스타일링 Tailwind CSS",
+  "slug": "React-스타일링-Tailwind-CSS",
+  "link": "https://velog.io/@zzxxcc1433/React-%EC%8A%A4%ED%83%80%EC%9D%BC%EB%A7%81-Tailwind-CSS",
+  "date": "2025-11-14",
+  "summary": "이번 포스팅에서는 React 환경에서 Tailwind CSS를 테스트하며 정리했던 내용을 기술한다. 코드 주석에서 간단히 설명했던 개념들을 본문 설명으로 재정리했고, 실행화면도 함께 첨부할 예정이다. Tailwind CSS는 Utility-First…",
+  "tags": [
+   "CSS",
+   "React"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React 스타일링 CSS clamp() 함수",
+  "slug": "React-스타일링-CSS-clamp-함수",
+  "link": "https://velog.io/@zzxxcc1433/React-%EC%8A%A4%ED%83%80%EC%9D%BC%EB%A7%81-CSS-clamp-%ED%95%A8%EC%88%98",
+  "date": "2025-11-14",
+  "summary": "이번 포스팅에서는 React 연습 중 작성했던 clamp() 관련 예제 코드를 기준으로, CSS의 clamp() 함수가 무엇인지 그리고 어떻게 동작하는지를 정리한다. 코드에 포함되어 있던 모든 주석은 아래에서 하나의 설명으로 풀어서 정리했다. 이 글…",
+  "tags": [
+   "CSS",
+   "React"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React 스타일링 Emotion + Chart 기반 대시보드 구축",
+  "slug": "React-Emotion-Chart-기반-대시보드-구축",
+  "link": "https://velog.io/@zzxxcc1433/React-Emotion-Chart-%EA%B8%B0%EB%B0%98-%EB%8C%80%EC%8B%9C%EB%B3%B4%EB%93%9C-%EA%B5%AC%EC%B6%95",
+  "date": "2025-11-14",
+  "summary": "본 포스팅은 Emotion(또는 @emotion/styled)을 사용한 테마 기반 스타일링과, Chart.js 및 Recharts를 활용한 차트 표현을 결합한 대시보드 구현 과정을 상세히 정리한 글이다. 제공한 코드만을 기반으로 작성했으며, 각 파일…",
+  "tags": [
+   "CSS",
+   "React"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React 스타일링 Emotion 테마와 공통 컴포넌트 기반 로그인 폼 설계",
+  "slug": "React-스타일링-Emotion-테마와-공통-컴포넌트-기반-로그인-폼-설계",
+  "link": "https://velog.io/@zzxxcc1433/React-%EC%8A%A4%ED%83%80%EC%9D%BC%EB%A7%81-Emotion-%ED%85%8C%EB%A7%88%EC%99%80-%EA%B3%B5%ED%86%B5-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EA%B8%B0%EB%B0%98-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%ED%8F%BC-%EC%84%A4%EA%B3%84",
+  "date": "2025-11-13",
+  "summary": "Emotion은 단순히 스타일을 적용하는 도구를 넘어, 디자인 시스템과 코드 구조를 통합적으로 관리할 수 있는 스타일링 솔루션이다. 이번 글에서는 Emotion의 핵심 기능인 테마 시스템(ThemeProvider)과 공통 UI 컴포넌트 구조화 방식을…",
+  "tags": [
+   "CSS",
+   "React"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React 스타일링 Emotion",
+  "slug": "React-스타일링-Emotion",
+  "link": "https://velog.io/@zzxxcc1433/React-%EC%8A%A4%ED%83%80%EC%9D%BC%EB%A7%81-Emotion",
+  "date": "2025-11-13",
+  "summary": "Emotion은 자바스크립트(JS)(그리고 TS) 코드 내부에서 직접 CSS를 작성할 수 있도록 지원하는 CSS-in-JS 스타일링 라이브러리다. React를 비롯한 다양한 프레임워크 환경에서 사용할 수 있으며, 컴포넌트 기반의 스타일링을 가능하게…",
+  "tags": [
+   "CSS",
+   "React"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React 스타일링 styled-components (CSS-in-JS)",
+  "slug": "React-스타일링-styled-components-CSS-in-JS",
+  "link": "https://velog.io/@zzxxcc1433/React-%EC%8A%A4%ED%83%80%EC%9D%BC%EB%A7%81-styled-components-CSS-in-JS",
+  "date": "2025-11-13",
+  "summary": "리액트에서 스타일을 작성하는 방식은 점차 컴포넌트 중심 설계로 발전해왔다. 이 과정에서 styled-components는 CSS-in-JS 패턴의 대표적인 도구로 자리잡았다. 이 글에서는 styled-components의 개념부터 실무에서 활용되는…",
+  "tags": [
+   "CSS",
+   "React"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React 스타일링 CSS Module과 Flex·Grid",
+  "slug": "React-스타일링-CSS-Module과-FlexGrid",
+  "link": "https://velog.io/@zzxxcc1433/React-%EC%8A%A4%ED%83%80%EC%9D%BC%EB%A7%81-CSS-Module%EA%B3%BC-FlexGrid",
+  "date": "2025-11-13",
+  "summary": "리액트 프로젝트가 커질수록 전역 스타일(Global CSS)만으로는 유지보수가 어렵다. 컴포넌트 단위의 독립성과 재사용성을 위해 CSS Module을 사용하는 방식이 등장했다. 이번 글에서는 CSS Module의 동작 원리부터 실무에서 자주 사용하는…",
+  "tags": [
+   "CSS",
+   "React"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React 스타일링 Global CSS와 변수 설계",
+  "slug": "React-스타일링-Global-CSS와-변수-설계",
+  "link": "https://velog.io/@zzxxcc1433/React-%EC%8A%A4%ED%83%80%EC%9D%BC%EB%A7%81-Global-CSS%EC%99%80-%EB%B3%80%EC%88%98-%EC%84%A4%EA%B3%84",
+  "date": "2025-11-13",
+  "summary": "리액트 프로젝트에서 가장 먼저 고민하게 되는 부분 중 하나는 “어떻게 스타일을 적용할 것인가”이다. 이번 글에서는 리액트의 스타일링 방식 중 가장 기본적이면서도 실무에서도 여전히 널리 쓰이는 Global CSS 방식을 중심으로 살펴본다. Global…",
+  "tags": [
+   "CSS",
+   "React"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "Spring boot + React + Zustand 로 푸드트럭 예약 조회 시스템 만들기",
+  "slug": "Spring-boot-React-Zustand-로-푸드트럭-예약-조회-시스템-만들기",
+  "link": "https://velog.io/@zzxxcc1433/Spring-boot-React-Zustand-%EB%A1%9C-%ED%91%B8%EB%93%9C%ED%8A%B8%EB%9F%AD-%EC%98%88%EC%95%BD-%EC%A1%B0%ED%9A%8C-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EB%A7%8C%EB%93%A4%EA%B8%B0",
+  "date": "2025-11-13",
+  "summary": "푸드트럭 예약 조회 시스템은 사용자가 특정 트럭의 예약 현황을 조회할 수 있도록 설계된 애플리케이션이다. 백엔드는 Spring Boot + JPA 기반으로 RESTful API를 제공하고,프론트엔드는 React + Zustand + Axios를 통해…",
+  "tags": [
+   "React",
+   "Spring boot"
+  ],
+  "series": "React",
+  "topics": [
+   "fullstack",
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React Zustand로 전역 상태 관리하기 예제",
+  "slug": "React-Zustand로-전역-상태-관리하기-예제",
+  "link": "https://velog.io/@zzxxcc1433/React-Zustand%EB%A1%9C-%EC%A0%84%EC%97%AD-%EC%83%81%ED%83%9C-%EA%B4%80%EB%A6%AC%ED%95%98%EA%B8%B0-%EC%98%88%EC%A0%9C",
+  "date": "2025-11-12",
+  "summary": "React 애플리케이션이 커질수록 컴포넌트 간의 데이터 전달은 복잡해진다. 단순히 props로 내려주기엔 depth가 깊어지고, Context API만으로는 리렌더링 부담이 생긴다. 이때 Zustand는 간결하고 유연한 API로 전역 상태를 관리할…",
+  "tags": [
+   "React"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React 전역 상태 관리와 Zustand",
+  "slug": "React-전역-상태-관리와-Zustand",
+  "link": "https://velog.io/@zzxxcc1433/React-%EC%A0%84%EC%97%AD-%EC%83%81%ED%83%9C-%EA%B4%80%EB%A6%AC%EC%99%80-Zustand",
+  "date": "2025-11-11",
+  "summary": "대형 애플리케이션에서 로그인 상태, UI 모달, 다크모드, 토스트 메시지 등은 여러 컴포넌트에서 사용해야 하는 공통 상태다. 이때 단순히 props를 내려주면 props drilling 문제가 발생하고 유지보수가 어려워진다. 전역 상태 관리(Glob…",
+  "tags": [
+   "React"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React + Axios + Zustand 인증 흐름",
+  "slug": "React-Axios-Zustand-인증-흐름",
+  "link": "https://velog.io/@zzxxcc1433/React-Axios-Zustand-%EC%9D%B8%EC%A6%9D-%ED%9D%90%EB%A6%84",
+  "date": "2025-11-11",
+  "summary": "이번 글에서는 Spring Boot + JWT 환경에서 Access Token / Refresh Token 기반 인증 구조를 구현하는 과정을 다룬다. 해당 프로젝트는 아래 링크에서 진행하였고, 본 포스팅은 저번 포스팅 의 포스트에서 프론트 중점으로…",
+  "tags": [
+   "React"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "Spring Boot로 구현한 JWT 인증 - Access Token / Refresh Token",
+  "slug": "Spring-Boot로-구현한-JWT-인증-Access-Token-Refresh-Token",
+  "link": "https://velog.io/@zzxxcc1433/Spring-Boot%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-JWT-%EC%9D%B8%EC%A6%9D-Access-Token-Refresh-Token",
+  "date": "2025-11-11",
+  "summary": "이번 글에서는 Spring Boot + JWT 환경에서 Access Token / Refresh Token 기반 인증 구조를 구현하는 과정을 다룬다. 해당 프로젝트는 아래 링크에서 진행하였고, 본 포스팅은 저번 포스팅 의 포스트에서 Spring Bo…",
+  "tags": [
+   "Spring boot"
+  ],
+  "series": null,
+  "topics": [
+   "fullstack"
+  ],
+  "featured": true
+ },
+ {
+  "title": "Spring Boot + React + Zustand + Axios 기반 인증 구조 분석",
+  "slug": "Spring-Boot-React-Zustand-Axios-기반-인증-구조-분석",
+  "link": "https://velog.io/@zzxxcc1433/Spring-Boot-React-Zustand-Axios-%EA%B8%B0%EB%B0%98-%EC%9D%B8%EC%A6%9D-%EA%B5%AC%EC%A1%B0-%EB%B6%84%EC%84%9D",
+  "date": "2025-11-11",
+  "summary": "이번 프로젝트에서는Access Token + Refresh Token 기반 인증 시스템을 구현했다. Access Token은 클라이언트의 요청을 인증하는 임시 권한 증표이며,Refresh Token은 Access Token이 만료되었을 때 새로운 A…",
+  "tags": [
+   "React",
+   "Spring boot"
+  ],
+  "series": "React",
+  "topics": [
+   "fullstack",
+   "react"
+  ],
+  "featured": true
+ },
+ {
+  "title": "React + Spring Boot 연동 게시판 CRUD 구현",
+  "slug": "React-Spring-Boot-연동-게시판-CRUD-구현",
+  "link": "https://velog.io/@zzxxcc1433/React-Spring-Boot-%EC%97%B0%EB%8F%99-%EA%B2%8C%EC%8B%9C%ED%8C%90-CRUD-%EA%B5%AC%ED%98%84",
+  "date": "2025-11-10",
+  "summary": "React 프론트엔드와 Spring Boot 백엔드를 연결하여게시글 생성(Create), 조회(Read), 수정(Update), 삭제(Delete) 기능을 구현할 수 있다. 이번 글에서는 Axios를 이용한 API 통신 구조와React 컴포넌트 구조…",
+  "tags": [
+   "React",
+   "Spring boot"
+  ],
+  "series": "React",
+  "topics": [
+   "fullstack",
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React  Axios API 구조 설계 - 인스턴스, 인터셉터, 서비스 계층",
+  "slug": "React-Axios-API-구조-설계-인스턴스-인터셉터-서비스-계층",
+  "link": "https://velog.io/@zzxxcc1433/React-Axios-API-%EA%B5%AC%EC%A1%B0-%EC%84%A4%EA%B3%84-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EC%9D%B8%ED%84%B0%EC%85%89%ED%84%B0-%EC%84%9C%EB%B9%84%EC%8A%A4-%EA%B3%84%EC%B8%B5",
+  "date": "2025-11-06",
+  "summary": "React 프로젝트에서 API 요청을 관리하는 가장 좋은 방법은Axios 인스턴스를 별도 파일로 분리하고,각 기능별로 Service 계층을 구성하는 것이다. 이 글에서는 다음 세 가지를 중심으로 구조를 설계한다. Axios 인스턴스(api.ts) —…",
+  "tags": [
+   "React"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": true
+ },
+ {
+  "title": "React  Axios로 구현하는 게시판 CRUD",
+  "slug": "React-Axios로-구현하는-게시판-CRUD",
+  "link": "https://velog.io/@zzxxcc1433/React-Axios%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%98%EB%8A%94-%EA%B2%8C%EC%8B%9C%ED%8C%90-CRUD",
+  "date": "2025-11-06",
+  "summary": "이번 글에서는 Axios를 활용한 게시판 CRUD 예제를 다룬다. Axios는 브라우저와 서버 간의 통신을 단순화해주는 HTTP 클라이언트 라이브러리로,React 환경에서 REST API 호출을 관리할 때 자주 사용된다. Axios는 Promise…",
+  "tags": [
+   "React"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React의 Router useSearchParams, useLocation, useParams, Outlet을 활용한 상품 페이지 구현",
+  "slug": "React의-Router-useSearchParams-useLocation-useParams-Outlet을-활용한-상품-페이지-구현",
+  "link": "https://velog.io/@zzxxcc1433/React%EC%9D%98-Router-useSearchParams-useLocation-useParams-Outlet%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%83%81%ED%92%88-%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B5%AC%ED%98%84",
+  "date": "2025-11-06",
+  "summary": "React Router를 활용하면 단일 페이지 애플리케이션(SPA) 내에서 다양한 페이지 이동과 데이터 전달을 손쉽게 구현할 수 있다. 이번 글에서는 실제 전자상거래 페이지를 예시로 하여,상품 리스트 페이지에서 쿼리 필터링, 상세 페이지 이동, 중첩…",
+  "tags": [
+   "React"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React의 useNavigate와 useLocation",
+  "slug": "React의-useNavigate와-useLocation",
+  "link": "https://velog.io/@zzxxcc1433/React%EC%9D%98-useNavigate%EC%99%80-useLocation",
+  "date": "2025-11-05",
+  "summary": "React Router는 SPA(Single Page Application) 환경에서 페이지 간 이동과 상태 관리를 간결하게 처리할 수 있도록 돕는 라우팅 라이브러리다. 특히 useNavigate와 useLocation은 컴포넌트 내부에서 코드로 라…",
+  "tags": [
+   "React"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React Hooks로 로컬 스토리지 기반 Todo List 구현하기",
+  "slug": "React-Hooks로-로컬-스토리지-기반-Todo-List-구현하기",
+  "link": "https://velog.io/@zzxxcc1433/React-Hooks%EB%A1%9C-%EB%A1%9C%EC%BB%AC-%EC%8A%A4%ED%86%A0%EB%A6%AC%EC%A7%80-%EA%B8%B0%EB%B0%98-Todo-List-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0",
+  "date": "2025-11-05",
+  "summary": "React에서는 간단한 데이터 저장이나 사용자 입력 관리가 필요한 경우,로컬 스토리지(localStorage)를 사용해 백엔드나 데이터베이스 없이 CRUD 기능을 구현할 수 있다. 이번 글에서는 Hooks를 활용해 로컬 스토리지를 사용하는 Todo…",
+  "tags": [],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React Custom Hook으로 검색 기능 구현하기",
+  "slug": "React-Custom-Hook으로-검색-기능-구현하기",
+  "link": "https://velog.io/@zzxxcc1433/React-Custom-Hook%EC%9C%BC%EB%A1%9C-%EA%B2%80%EC%83%89-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0",
+  "date": "2025-11-05",
+  "summary": "React의 Hook 조합으로 검색 기능을 간단하게 만들 수 있다! 이번 포스팅에서는 useRef, useState, useEffect를 활용한 검색 커스텀 훅 구현과 컴포넌트 분리 구조까지 단계별로 알아본다. 웹사이트의 검색 기능(Search UI…",
+  "tags": [
+   "React"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React 커스텀 훅(Custom Hooks)",
+  "slug": "React-커스텀-훅Custom-Hooks",
+  "link": "https://velog.io/@zzxxcc1433/React-%EC%BB%A4%EC%8A%A4%ED%85%80-%ED%9B%85Custom-Hooks",
+  "date": "2025-11-05",
+  "summary": "리액트에서 Hooks는 함수형 컴포넌트의 생명주기와 상태 관리를 가능하게 만들어주는 핵심 기능이다. 하지만 컴포넌트마다 반복되는 로직이 많아질수록 코드의 재사용성이 떨어지게 된다. 이때 등장하는 것이 바로 커스텀 훅(Custom Hook)이다. 커스…",
+  "tags": [
+   "React"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React 상태 관리 useState vs useReducer",
+  "slug": "React-상태-관리-useState-vs-useReducer",
+  "link": "https://velog.io/@zzxxcc1433/React-%EC%83%81%ED%83%9C-%EA%B4%80%EB%A6%AC-useState-vs-useReducer",
+  "date": "2025-11-05",
+  "summary": "리액트에서 상태(state)는 컴포넌트의 핵심이다. 상태는 UI의 동작을 결정하는 데이터이며, 이를 어떻게 관리하느냐에 따라 코드의 구조와 유지보수성이 달라진다. React에서는 기본적으로 useState와 useReducer라는 두 가지 Hook을…",
+  "tags": [
+   "React"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React의 useMemo",
+  "slug": "React의-useMemo",
+  "link": "https://velog.io/@zzxxcc1433/React%EC%9D%98-useMemo",
+  "date": "2025-11-05",
+  "summary": "React에서 useMemo는 “불필요한 재계산을 방지하기 위한 기억장치”다. 컴포넌트가 리렌더링될 때 매번 동일한 계산을 반복하지 않도록, 이전 결과를 메모리에 저장해 재사용한다. 이 글에서는 useMemo의 동작 원리부터 실전 예시, 주의할 점까…",
+  "tags": [
+   "React"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React의 useCallback",
+  "slug": "React의-useCallback",
+  "link": "https://velog.io/@zzxxcc1433/React%EC%9D%98-useCallback",
+  "date": "2025-11-05",
+  "summary": "useCallback은 함수의 동일성(identity) 을 유지하는 훅이다. React.memo는 props 얕은 비교로 자식 리렌더링을 건너뛰는 고차 컴포넌트다. 둘을 함께 쓰면 부모 렌더링에도 불구하고 불필요한 자식 렌더링을 줄일 수 있다. 단,…",
+  "tags": [
+   "React"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React의 useEffect",
+  "slug": "React의-useEffect",
+  "link": "https://velog.io/@zzxxcc1433/React%EC%9D%98-useEffect",
+  "date": "2025-11-04",
+  "summary": "React의 useEffect는 단순히 “렌더링 후 실행되는 함수” 이상의 개념이다. 컴포넌트의 생명주기와 부수효과(Side Effect)를 제어하는 핵심 훅으로,데이터 로딩, 이벤트 등록, 타이머 관리, API 통신, 정리(clean-up) 등 다…",
+  "tags": [],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React useRef",
+  "slug": "React-useRef",
+  "link": "https://velog.io/@zzxxcc1433/React-useRef",
+  "date": "2025-11-04",
+  "summary": "리액트에서 useRef는 값을 유지하거나 DOM 요소를 직접 제어할 수 있는 훅(Hook) 이다. useState처럼 컴포넌트 내부의 값을 다루지만, 렌더링과는 무관하게 값이 유지된다는 점이 큰 차이점이다. useRef는 변경 가능한 참조 객체를 생…",
+  "tags": [
+   "React"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React 이벤트 핸들러와 useState의 구조적 연결",
+  "slug": "React-이벤트-핸들러와-useState의-구조적-연결",
+  "link": "https://velog.io/@zzxxcc1433/React-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%ED%95%B8%EB%93%A4%EB%9F%AC%EC%99%80-useState%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%A0%81-%EC%97%B0%EA%B2%B0",
+  "date": "2025-11-03",
+  "summary": "React 이벤트 핸들러와 useState의 구조적 연결React에서 이벤트 핸들러(Event Handler)는 단순히 클릭이나 입력에 반응하는 함수가 아니다. 이벤트는 상태(state) 와 함께 컴포넌트의 동작을 제어하고, UI를 갱신하는 핵심 구…",
+  "tags": [
+   "React"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React의 useState",
+  "slug": "React의-useState",
+  "link": "https://velog.io/@zzxxcc1433/React%EC%9D%98-useState",
+  "date": "2025-11-03",
+  "summary": "리액트 함수형 컴포넌트에서 상태를 관리하는 가장 기본적이고 중요한 도구가 useState다. 이 글에서는 useState의 개념, 호출 규칙, 동작 원리, 실무에서 자주 쓰는 패턴과 주의사항을 주석 기반 예제 코드와 함께 세세히 다룬다. Hooks는…",
+  "tags": [
+   "React"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React Router의 Router, Routes, Route 정리",
+  "slug": "React-Router의-Router-Routes-Route-정리",
+  "link": "https://velog.io/@zzxxcc1433/React-Router%EC%9D%98-Router-Routes-Route-%EC%A0%95%EB%A6%AC",
+  "date": "2025-11-03",
+  "summary": "리액트 프로젝트를 개발하다 보면 페이지 이동을 처리해야 하는 경우가 많다. 하지만 리액트는 기본적으로 SPA(Single Page Application) 구조이기 때문에,URL이 바뀌더라도 실제로는 하나의 HTML 파일(index.html) 안에서…",
+  "tags": [
+   "React"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React Router의 useParams 이해하기",
+  "slug": "React-useParams-URL의-변수를-꺼내는-리액트-훅",
+  "link": "https://velog.io/@zzxxcc1433/React-useParams-URL%EC%9D%98-%EB%B3%80%EC%88%98%EB%A5%BC-%EA%BA%BC%EB%82%B4%EB%8A%94-%EB%A6%AC%EC%95%A1%ED%8A%B8-%ED%9B%85",
+  "date": "2025-11-03",
+  "summary": "리액트를 이용해 웹 페이지를 개발하다 보면, URL 주소에 포함된 특정 값을 꺼내야 하는 경우가 자주 생긴다. 예를 들어 /users/10이라는 주소를 받았을 때, 마지막의 10은 단순한 숫자가 아니라“10번 사용자”를 의미하는 데이터로서 다뤄져야…",
+  "tags": [
+   "React"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React에서의 이벤트 핸들러",
+  "slug": "React에서의-이벤트-핸들러",
+  "link": "https://velog.io/@zzxxcc1433/React%EC%97%90%EC%84%9C%EC%9D%98-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%ED%95%B8%EB%93%A4%EB%9F%AC",
+  "date": "2025-10-30",
+  "summary": "React에서 이벤트 핸들러는 단순히 클릭이나 입력에 반응하는 함수 이상의 의미를 가진다. 이벤트는 컴포넌트 간의 데이터 흐름과 구조적 역할 분리를 이해하는 중요한 열쇠다. 이번 글에서는 React의 이벤트 핸들러가 어떻게 정의되고, 전달되고, 실행…",
+  "tags": [
+   "React"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React 공부하면서 들었던 의문 1 - React 이벤트 객체(e)에 대한 오해와 이해",
+  "slug": "React-공부하면서-들었던-의문-1-React-이벤트-객체e에-대한-오해와-이해",
+  "link": "https://velog.io/@zzxxcc1433/React-%EA%B3%B5%EB%B6%80%ED%95%98%EB%A9%B4%EC%84%9C-%EB%93%A4%EC%97%88%EB%8D%98-%EC%9D%98%EB%AC%B8-1-React-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EA%B0%9D%EC%B2%B4e%EC%97%90-%EB%8C%80%ED%95%9C-%EC%98%A4%ED%95%B4%EC%99%80-%EC%9D%B4%ED%95%B4",
+  "date": "2025-10-30",
+  "summary": "일단 답은 이렇게 보면 안된다. 다음 예시를 보자. 이 코드를 처음 봤을 때, 나 역시 이렇게 생각했다.“form 안에 button과 input이 있으니까, e는 그 자식 요소들을 포함한 객체 아닐까?”그러나 실제로는 그렇지 않았다. React에서…",
+  "tags": [
+   "React",
+   "이론"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React 렌더링(Rendering)",
+  "slug": "React-렌더링Rendering",
+  "link": "https://velog.io/@zzxxcc1433/React-%EB%A0%8C%EB%8D%94%EB%A7%81Rendering",
+  "date": "2025-10-30",
+  "summary": "React를 처음 접하면 “렌더링”이라는 개념이 자주 등장한다. 렌더링이란 작성한 코드(JSX/TSX)를 실제 브라우저 화면(UI)으로 출력하는 과정을 의미한다. React는 이 렌더링 과정을 매우 효율적으로 수행한다. 데이터(state나 props…",
+  "tags": [
+   "React",
+   "typescript",
+   "vite"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "구조 분해 할당에 대해서",
+  "slug": "구조-분해-할당에-대해서",
+  "link": "https://velog.io/@zzxxcc1433/%EA%B5%AC%EC%A1%B0-%EB%B6%84%ED%95%B4-%ED%95%A0%EB%8B%B9%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C",
+  "date": "2025-10-30",
+  "summary": "이번 포스트에선 구조분해할당(Destructuring Assignment) 에 대해 얘기해보려 한다. 구조분해할당이란 배열이나 객체의 요소 및 프로퍼티들을 분해해서, 그 값들을 각각의 변수에 할당하는 자바스크립트의 표현식이다. 배열은 다양한 요소들을…",
+  "tags": [
+   "JavaScript",
+   "typescript",
+   "이론"
+  ],
+  "series": "이론",
+  "topics": [
+   "java"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React Props 정리",
+  "slug": "리액트-Props-정리",
+  "link": "https://velog.io/@zzxxcc1433/%EB%A6%AC%EC%95%A1%ED%8A%B8-Props-%EC%A0%95%EB%A6%AC",
+  "date": "2025-10-30",
+  "summary": "React의 핵심은 컴포넌트(Component) 다. 컴포넌트는 화면을 구성하는 최소 단위이며, HTML 태그처럼 재사용할 수 있다. 그런데 컴포넌트가 늘 같은 데이터만 보여준다면 의미가 없다. 이때 사용하는 것이 바로 Props(Properties…",
+  "tags": [
+   "React",
+   "typescript",
+   "vite"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React 프로젝트 폴더 구조 정리",
+  "slug": "React-프로젝트-폴더-구조-정리",
+  "link": "https://velog.io/@zzxxcc1433/React-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%8F%B4%EB%8D%94-%EA%B5%AC%EC%A1%B0-%EC%A0%95%EB%A6%AC",
+  "date": "2025-10-29",
+  "summary": "리액트 프로젝트를 진행하다 보면 파일이 점점 많아지고, 기능별로 코드가 얽히기 시작한다. 이때 가장 중요한 것은 프로젝트 구조를 명확하게 구분하는 일이다. 이번 글에서는 Vite + React + TypeScript 환경을 기준으로,실무에서 자주 사…",
+  "tags": [
+   "React",
+   "vite"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "TypeScript로 구현한 그림판(Canvas Drawing App)",
+  "slug": "TypeScript로-구현한-그림판Canvas-Drawing-App",
+  "link": "https://velog.io/@zzxxcc1433/TypeScript%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EA%B7%B8%EB%A6%BC%ED%8C%90Canvas-Drawing-App",
+  "date": "2025-10-29",
+  "summary": "이번 글에서는 HTML5의 &lt;canvas> 요소를 활용해 브라우저에서 실행되는 간단한 그림판을 구현했다. 순수 TypeScript + HTML + CSS 만으로 동작하며, 브러시 색상, 굵기 조절, 지우개, 초기화, 저장 기능을 지원한다. 이…",
+  "tags": [
+   "typescript"
+  ],
+  "series": "TypeScript",
+  "topics": [
+   "typescript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "TypeScript로 구현하는 할 일 관리 시스템 (Task Logger)",
+  "slug": "TypeScript로-구현하는-할-일-관리-시스템-Task-Logger",
+  "link": "https://velog.io/@zzxxcc1433/TypeScript%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%98%EB%8A%94-%ED%95%A0-%EC%9D%BC-%EA%B4%80%EB%A6%AC-%EC%8B%9C%EC%8A%A4%ED%85%9C-Task-Logger",
+  "date": "2025-10-29",
+  "summary": "이번 글에서는 TypeScript로 작성한 간단한 할 일 관리 시스템(Task Logger)을 구현한 과정을 정리한다. 이 프로젝트는 사용자가 입력한 할 일을 추가, 삭제, 표시할 수 있는 기본적인 CRUD 기능을 제공한다. 또한, TypeScrip…",
+  "tags": [
+   "typescript"
+  ],
+  "series": "TypeScript",
+  "topics": [
+   "typescript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "사용자 리스트 모달 구현 비교 — 내 코드 vs 답안 코드",
+  "slug": "사용자-리스트-모달-구현-비교-내-코드-vs-답안-코드",
+  "link": "https://velog.io/@zzxxcc1433/%EC%82%AC%EC%9A%A9%EC%9E%90-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EB%AA%A8%EB%8B%AC-%EA%B5%AC%ED%98%84-%EB%B9%84%EA%B5%90-%EB%82%B4-%EC%BD%94%EB%93%9C-vs-%EB%8B%B5%EC%95%88-%EC%BD%94%EB%93%9C",
+  "date": "2025-10-29",
+  "summary": "이번 글에서는 TypeScript + DOM 환경에서 작성한 사용자 리스트 및 모달 창 구현 코드를 비교 분석한다. 두 코드는 동일한 기능을 수행하지만, DOM 탐색 방식과 이벤트 위임 구조에서 차이를 보인다. 이 글에서는 내 코드와 답안 코드를 비…",
+  "tags": [
+   "typescript"
+  ],
+  "series": "TypeScript",
+  "topics": [
+   "typescript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "TypeScript로 사용자 리스트 모달 만들기",
+  "slug": "TypeScript로-사용자-리스트-모달-만들기",
+  "link": "https://velog.io/@zzxxcc1433/TypeScript%EB%A1%9C-%EC%82%AC%EC%9A%A9%EC%9E%90-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EB%AA%A8%EB%8B%AC-%EB%A7%8C%EB%93%A4%EA%B8%B0",
+  "date": "2025-10-29",
+  "summary": "이번 글에서는 TypeScript로 사용자 리스트를 불러와 모달 창에서 상세 정보를 보여주는 웹 페이지를 구현한다. 이 예제는 fetch, async/await, interface, dataset, 그리고 DOM 조작을 함께 사용하여비동기 데이터 처…",
+  "tags": [
+   "typescript"
+  ],
+  "series": "TypeScript",
+  "topics": [
+   "typescript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "JSX(TSX)의 개념과 문법 정리",
+  "slug": "JSXTSX의-개념과-문법-정리",
+  "link": "https://velog.io/@zzxxcc1433/JSXTSX%EC%9D%98-%EA%B0%9C%EB%85%90%EA%B3%BC-%EB%AC%B8%EB%B2%95-%EC%A0%95%EB%A6%AC",
+  "date": "2025-10-29",
+  "summary": "리액트에서는 일반 자바스크립트나 타입스크립트 코드만으로 UI를 구성하기 어렵다. 이 문제를 해결하기 위해 JSX(JavaScript XML) 또는 타입스크립트 환경에서의 TSX(TypeScript XML) 문법을 사용한다. JSX는 자바스크립트 코드…",
+  "tags": [
+   "React",
+   "typescript",
+   "vite"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "React 컴포넌트의 구조와 TSX 문법 — 함수형 컴포넌트 이해하기",
+  "slug": "React-컴포넌트의-구조와-TSX-문법-함수형-컴포넌트-이해하기",
+  "link": "https://velog.io/@zzxxcc1433/React-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-TSX-%EB%AC%B8%EB%B2%95-%ED%95%A8%EC%88%98%ED%98%95-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0",
+  "date": "2025-10-29",
+  "summary": "이번 글에서는 React의 컴포넌트(Component) 개념과TypeScript 기반의 함수형 컴포넌트(TSX) 작성 방식을 정리한다. 특히, React에서 자주 혼동되는 함수(Function)와 컴포넌트(Component)의 차이,그리고 TSX 문…",
+  "tags": [
+   "React",
+   "typescript",
+   "vite"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "TypeScript와 React의 차이 — 카운터 예제로 이해하기",
+  "slug": "TypeScript와-React의-차이-카운터-예제로-이해하기",
+  "link": "https://velog.io/@zzxxcc1433/TypeScript%EC%99%80-React%EC%9D%98-%EC%B0%A8%EC%9D%B4-%EC%B9%B4%EC%9A%B4%ED%84%B0-%EC%98%88%EC%A0%9C%EB%A1%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0",
+  "date": "2025-10-29",
+  "summary": "이번 글에서는 TypeScript(이하 TS)와 React의 가장 큰 차이를직관적인 예제를 통해 비교한다. 동일한 “카운터” 기능을 두 가지 방식으로 구현하고,UI 구성과 상태 관리의 접근 방식이 어떻게 다른지 살펴본다. 먼저 TypeScript만으…",
+  "tags": [
+   "React",
+   "typescript",
+   "vite"
+  ],
+  "series": "React",
+  "topics": [
+   "react"
+  ],
+  "featured": false
+ },
+ {
+  "title": "Vite + React + TypeScript 환경 설정 정리",
+  "slug": "Vite-React-TypeScript-환경-설정-정리",
+  "link": "https://velog.io/@zzxxcc1433/Vite-React-TypeScript-%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95-%EC%A0%95%EB%A6%AC",
+  "date": "2025-10-29",
+  "summary": "React 프로젝트를 생성할 때 Create React App 대신 Vite를 사용하는 경우가 많다. Vite는 CRA보다 훨씬 빠르고 설정이 간결하며, TypeScript 지원도 기본 제공한다. 이번 글에서는 Vite 기반 React + TypeS…",
+  "tags": [
+   "React",
+   "typescript",
+   "vite",
+   "환경설정"
+  ],
+  "series": null,
+  "topics": [
+   "tools"
+  ],
+  "featured": false
+ },
+ {
+  "title": "비동기 사용자 정보 조회 & 필터링 기능 구현 비교 분석",
+  "slug": "비동기-사용자-정보-조회-필터링-기능-구현-비교-분석",
+  "link": "https://velog.io/@zzxxcc1433/%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%A0%95%EB%B3%B4-%EC%A1%B0%ED%9A%8C-%ED%95%84%ED%84%B0%EB%A7%81-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84-%EB%B9%84%EA%B5%90-%EB%B6%84%EC%84%9D",
+  "date": "2025-10-29",
+  "summary": "🧩 비동기 사용자 정보 조회 & 필터링 기능 구현 비교 분석 이번 포스팅에서는 JSONPlaceholder의 사용자 API를 활용해 사용자 정보를 비동기적으로 불러오고, 검색과 정렬 기능을 구현하는 과제를 수행하며 작성한 내 코드와 정답 코드의 차…",
+  "tags": [
+   "typescript"
+  ],
+  "series": "TypeScript",
+  "topics": [
+   "typescript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "TypeScript로 구현한 사용자 조회 및 검색 필터링 기능",
+  "slug": "TypeScript로-구현한-사용자-조회-및-검색-필터링-기능",
+  "link": "https://velog.io/@zzxxcc1433/TypeScript%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%A1%B0%ED%9A%8C-%EB%B0%8F-%EA%B2%80%EC%83%89-%ED%95%84%ED%84%B0%EB%A7%81-%EA%B8%B0%EB%8A%A5",
+  "date": "2025-10-29",
+  "summary": "이번 글에서는 TypeScript와 Fetch API를 활용해 사용자 정보를 조회하고, 검색어 입력 및 정렬 기능을 통해 데이터를 필터링하는 웹 애플리케이션을 구현해보았다. 외부 API에서 데이터를 가져와 DOM 요소로 렌더링하고, 사용자의 입력에…",
+  "tags": [
+   "typescript"
+  ],
+  "series": "TypeScript",
+  "topics": [
+   "typescript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "TypeScript로 구현한 동적 데이터 렌더링 프로젝트 비교: 사진 갤러리 vs 사용자 리스트 페이지네이션",
+  "slug": "TypeScript로-구현한-동적-데이터-렌더링-프로젝트-비교-사진-갤러리-vs-사용자-리스트-페이지네이션",
+  "link": "https://velog.io/@zzxxcc1433/TypeScript%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EB%8F%99%EC%A0%81-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%A0%8C%EB%8D%94%EB%A7%81-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%B9%84%EA%B5%90-%EC%82%AC%EC%A7%84-%EA%B0%A4%EB%9F%AC%EB%A6%AC-vs-%EC%82%AC%EC%9A%A9%EC%9E%90-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%ED%8E%98%EC%9D%B4%EC%A7%80%EB%84%A4%EC%9D%B4%EC%85%98",
+  "date": "2025-10-28",
+  "summary": "이번 글에서는 두 가지 프로젝트를 통해 TypeScript와 Fetch API를 활용한 동적 데이터 렌더링 방식을 비교한다. 프로젝트 A: 사진 갤러리 페이지네이션 (Photo Gallery) 프로젝트 B: 사용자 리스트 페이지네이션 (User Li…",
+  "tags": [
+   "typescript"
+  ],
+  "series": "TypeScript",
+  "topics": [
+   "typescript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "TypeScript와 Fetch API로 구현한 사용자 리스트 페이지네이션",
+  "slug": "TypeScript와-Fetch-API로-구현한-사용자-리스트-페이지네이션",
+  "link": "https://velog.io/@zzxxcc1433/TypeScript%EC%99%80-Fetch-API%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%82%AC%EC%9A%A9%EC%9E%90-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%ED%8E%98%EC%9D%B4%EC%A7%80%EB%84%A4%EC%9D%B4%EC%85%98",
+  "date": "2025-10-28",
+  "summary": "이번 글에서는 TypeScript와 Fetch API를 활용하여 JSONPlaceholder API에서 사용자 데이터를 가져오는 페이지네이션 기능을 구현한 예제를 소개한다. 한 페이지에는 3명의 사용자 정보를 표시하고, Next/Previous 버튼…",
+  "tags": [
+   "typescript"
+  ],
+  "series": "TypeScript",
+  "topics": [
+   "typescript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "TypeScript와 Fetch API로 구현한 사진 갤러리 페이지네이션",
+  "slug": "TypeScript와-Fetch-API로-구현한-사진-갤러리-페이지네이션",
+  "link": "https://velog.io/@zzxxcc1433/TypeScript%EC%99%80-Fetch-API%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-%EC%82%AC%EC%A7%84-%EA%B0%A4%EB%9F%AC%EB%A6%AC-%ED%8E%98%EC%9D%B4%EC%A7%80%EB%84%A4%EC%9D%B4%EC%85%98",
+  "date": "2025-10-28",
+  "summary": "이번 글에서는 TypeScript와 Fetch API를 활용하여 JSONPlaceholder API의 사진 데이터를 가져오는 갤러리를 구현한 예제를 소개한다. 각 페이지에는 4개의 사진을 표시하고, Next/Previous 버튼으로 페이지를 이동할…",
+  "tags": [
+   "typescript"
+  ],
+  "series": "TypeScript",
+  "topics": [
+   "typescript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "TypeScript로 구현한 Fetch API 기반 사용자 정보 조회",
+  "slug": "TypeScript로-구현한-Fetch-API-기반-사용자-정보-조회",
+  "link": "https://velog.io/@zzxxcc1433/TypeScript%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%9C-Fetch-API-%EA%B8%B0%EB%B0%98-%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%A0%95%EB%B3%B4-%EC%A1%B0%ED%9A%8C",
+  "date": "2025-10-28",
+  "summary": "이번 글에서는 TypeScript를 활용하여 JSONPlaceholder API로 사용자 데이터를 가져오는 예제를 구현했다. 사용자가 입력한 ID를 기반으로 데이터를 조회하고, 로딩 메시지, 성공, 실패 처리까지 화면에 반영하도록 설계했다. 또한,…",
+  "tags": [
+   "typescript"
+  ],
+  "series": "TypeScript",
+  "topics": [
+   "typescript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "TypeScript로 구현하는 ToDo 리스트",
+  "slug": "TypeScript로-구현하는-ToDo-리스트",
+  "link": "https://velog.io/@zzxxcc1433/TypeScript%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%98%EB%8A%94-ToDo-%EB%A6%AC%EC%8A%A4%ED%8A%B8",
+  "date": "2025-10-28",
+  "summary": "이번 글에서는 TypeScript로 간단한 ToDo 리스트 프로그램을 구현해보았다. 자바스크립트와의 차이점을 명확히 드러내며, 타입 안정성과 가독성을 높이는 방향으로 작성하였다. 또한, 내가 작성한 코드와 답안 코드를 비교하며 개선 포인트를 분석해보…",
+  "tags": [
+   "typescript"
+  ],
+  "series": "TypeScript",
+  "topics": [
+   "typescript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "TypeScript 헷갈리는 개념 정리 - 옵셔널 체이닝",
+  "slug": "TypeScript-헷갈리는-개념-정리-옵셔널-체이닝",
+  "link": "https://velog.io/@zzxxcc1433/TypeScript-%ED%97%B7%EA%B0%88%EB%A6%AC%EB%8A%94-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC-%EC%98%B5%EC%85%94%EB%84%90-%EC%B2%B4%EC%9D%B4%EB%8B%9D",
+  "date": "2025-10-28",
+  "summary": "TypeScript를 사용하다 보면 옵셔널 체이닝(?.)을 편하게 활용할 때가 많다. 그런데 이 문법을 대입문(=)과 함께 사용하면, 다음과 같은 오류가 발생한다. 다음은 흔히 볼 수 있는 코드 예시다. 겉보기에는 문제가 없어 보이지만, TypeSc…",
+  "tags": [],
+  "series": "TypeScript",
+  "topics": [
+   "typescript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "TypeScript의 동기와 비동기 프로그래밍",
+  "slug": "TypeScript의-동기와-비동기-프로그래밍",
+  "link": "https://velog.io/@zzxxcc1433/TypeScript%EC%9D%98-%EB%8F%99%EA%B8%B0%EC%99%80-%EB%B9%84%EB%8F%99%EA%B8%B0-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D",
+  "date": "2025-10-28",
+  "summary": "타입스크립트를 공부하다 보면 반드시 마주치는 핵심 개념이 있다. 바로 동기(Synchronous) 와 비동기(Asynchronous) 프로그래밍이다. 두 개념은 코드의 실행 순서와 제어 흐름을 결정하는 매우 중요한 부분이다. 이번 글에서는 타입스크립…",
+  "tags": [
+   "typescript"
+  ],
+  "series": "TypeScript",
+  "topics": [
+   "typescript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "TypeScript에서 헷갈리는 개념 정리 — 인터페이스, 제네릭, Omit",
+  "slug": "TypeScript에서-헷갈리는-개념-정리-인터페이스-제네릭-Omit",
+  "link": "https://velog.io/@zzxxcc1433/TypeScript%EC%97%90%EC%84%9C-%ED%97%B7%EA%B0%88%EB%A6%AC%EB%8A%94-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4-%EC%A0%9C%EB%84%A4%EB%A6%AD-Omit",
+  "date": "2025-10-27",
+  "summary": "프론트엔드 개발을 하다 보면 TypeScript의 타입 시스템에서 헷갈리는 개념들이 자주 등장한다. 이번 글에서는 나도 처음에 헷갈렸던 세 가지 개념을 정리해본다. 결론부터 말하자면 아니다. interface에서의 ?는 “값이 있을 수도 있고, 없을…",
+  "tags": [
+   "typescript"
+  ],
+  "series": "TypeScript",
+  "topics": [
+   "typescript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "TypeScript 제네릭(Generic)",
+  "slug": "TypeScript-제네릭Generic",
+  "link": "https://velog.io/@zzxxcc1433/TypeScript-%EC%A0%9C%EB%84%A4%EB%A6%ADGeneric",
+  "date": "2025-10-27",
+  "summary": "제네릭(Generic)은 한 번 작성한 코드로 여러 타입을 다루기 위한 기술이다. 즉, 데이터 타입을 미리 고정하지 않고, 사용 시점에서 타입을 지정할 수 있게 해주는 문법이다. 이 덕분에 코드의 재사용성이 높아지고, 타입 안정성 또한 보장된다. 제…",
+  "tags": [
+   "typescript"
+  ],
+  "series": "TypeScript",
+  "topics": [
+   "typescript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "TypeScript에서의 인터페이스(interface)",
+  "slug": "TypeScript에서의-인터페이스interface",
+  "link": "https://velog.io/@zzxxcc1433/TypeScript%EC%97%90%EC%84%9C%EC%9D%98-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4interface",
+  "date": "2025-10-27",
+  "summary": "TypeScript에서 interface는 객체의 구조(Shape)를 정의하기 위한 기능이다. 즉, 인터페이스는 클래스나 객체가 어떤 속성과 메서드를 가져야 하는지를 지정해주는 역할을 한다. 객체(속성, 메서드) 구조를 정의하는 TS 기능 \\+) 함…",
+  "tags": [
+   "typescript"
+  ],
+  "series": "TypeScript",
+  "topics": [
+   "typescript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "TypeScript Type Assertion 정리",
+  "slug": "TypeScript-Type-Assertion-정리",
+  "link": "https://velog.io/@zzxxcc1433/TypeScript-Type-Assertion-%EC%A0%95%EB%A6%AC",
+  "date": "2025-10-27",
+  "summary": "타입스크립트는 컴파일러가 변수의 타입을 자동 추론하지만,때로는 개발자가 더 잘 알고 있는 경우가 있다. 이럴 때 사용하는 것이 바로 타입 단언(Type Assertion)이다. 타입 단언은 컴파일러보다 개발자가 타입을 더 잘 알고 있을 때명시적으로…",
+  "tags": [
+   "typescript"
+  ],
+  "series": "TypeScript",
+  "topics": [
+   "typescript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "TypeScript type",
+  "slug": "TypeScript-type",
+  "link": "https://velog.io/@zzxxcc1433/TypeScript-type",
+  "date": "2025-10-27",
+  "summary": "타입 스크립트의 강점은 바로 '타입 시스템'이다. > 타입을 명시함으로써 코드의 안정성을 확보하고, 에러를 사전에 방지 가능한데, 이번 글에선 기본타입, 객체, 함수, 리터럴, 유니온, 인터섹션까지 살펴볼 예정이다. 1. 타입 명시(Type Anno…",
+  "tags": [
+   "typescript"
+  ],
+  "series": "TypeScript",
+  "topics": [
+   "typescript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "TypeScript란",
+  "slug": "TypeScript란",
+  "link": "https://velog.io/@zzxxcc1433/TypeScript%EB%9E%80",
+  "date": "2025-10-24",
+  "summary": "타입스크립트(TypeScript)는 자바스크립트(JavaScript)를 기반으로 하는 오픈소스 프로그래밍 언어이다. Microsoft에서 개발과 유지를 담당하고 있으며, 자바스크립트의 상위 집합(Superset)이다. 즉, 자바스크립트의 모든 기능을…",
+  "tags": [
+   "typescript"
+  ],
+  "series": "TypeScript",
+  "topics": [
+   "typescript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "TypeScript 환경설정",
+  "slug": "TypeScript-환경설정",
+  "link": "https://velog.io/@zzxxcc1433/TypeScript-%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95",
+  "date": "2025-10-24",
+  "summary": "TypeScript 환경을 구축하기 위한 전체 과정은 다음과 같다. Node.js 설치프로젝트 폴더 생성TypeScript 컴파일러(tsc) 설치tsconfig.json 설정 파일 생성기본 폴더 구조 구성 (src 등)빌드 및 실행 테스트(선택)ES…",
+  "tags": [
+   "typescript",
+   "환경설정"
+  ],
+  "series": "TypeScript",
+  "topics": [
+   "typescript",
+   "tools"
+  ],
+  "featured": false
+ },
+ {
+  "title": "Spring Boot + JavaScript로 공지사항 CRUD 구현하기",
+  "slug": "Spring-Boot-JavaScript로-공지사항-CRUD-구현하기",
+  "link": "https://velog.io/@zzxxcc1433/Spring-Boot-JavaScript%EB%A1%9C-%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD-CRUD-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0",
+  "date": "2025-10-21",
+  "summary": "이 글에서는 Spring Boot 백엔드와 JavaScript 프론트엔드를 연결하여공지사항(Notice)을 관리하는 간단한 CRUD 웹 애플리케이션을 구현해본다. 프론트엔드는 HTML, CSS, JS로 작성하며,백엔드는 Spring Boot 기반의…",
+  "tags": [
+   "JavaScript",
+   "Spring boot"
+  ],
+  "series": "JavaScript",
+  "topics": [
+   "fullstack",
+   "javascript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "JavaScript 비동기 프로그래밍 정리",
+  "slug": "JavaScript-비동기-프로그래밍-정리",
+  "link": "https://velog.io/@zzxxcc1433/JavaScript-%EB%B9%84%EB%8F%99%EA%B8%B0-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%A0%95%EB%A6%AC",
+  "date": "2025-10-21",
+  "summary": "비동기 프로그래밍이 필요한 이유자바스크립트의 실행 모델: 콜 스택 · 이벤트 루프 · 태스크 큐콜백(Callback) 기반 비동기Promise: 개념과 사용법, 체이닝과 에러 처리async / await: 동기 스타일의 비동기 코드 작성fetch 사…",
+  "tags": [
+   "JavaScript"
+  ],
+  "series": "JavaScript",
+  "topics": [
+   "javascript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "JavaScript 모듈 시스템을 활용한 To-Do List 구현",
+  "slug": "JavaScript-모듈-시스템을-활용한-To-Do-List-구현",
+  "link": "https://velog.io/@zzxxcc1433/JavaScript-%EB%AA%A8%EB%93%88-%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-To-Do-List-%EA%B5%AC%ED%98%84",
+  "date": "2025-10-20",
+  "summary": "이번 글에서는 JavaScript 모듈 시스템을 활용해 간단한 할 일(To-Do) 리스트 웹 애플리케이션을 구현해본다. 이 프로젝트는 HTML, CSS, JS 세 가지 파일과, 별도의 모듈 파일(TodoManager.js)로 구성되어 있다. HTML…",
+  "tags": [
+   "JavaScript"
+  ],
+  "series": "JavaScript",
+  "topics": [
+   "javascript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "JavaScript 모듈(module)의 개념과 사용법",
+  "slug": "JavaScript-모듈module의-개념과-사용법",
+  "link": "https://velog.io/@zzxxcc1433/JavaScript-%EB%AA%A8%EB%93%88module%EC%9D%98-%EA%B0%9C%EB%85%90%EA%B3%BC-%EC%82%AC%EC%9A%A9%EB%B2%95",
+  "date": "2025-10-20",
+  "summary": "자바스크립트의 모듈 시스템은 코드를 분리하고 재사용하기 위한 강력한 기능이다. 하나의 파일 안에 모든 기능을 넣는 대신, 역할에 따라 파일을 나누고 필요한 부분만 가져와 쓸 수 있다. 이번 글에서는 ES6 모듈 시스템의 개념부터 실제 예제까지 단계적…",
+  "tags": [
+   "JavaScript"
+  ],
+  "series": "JavaScript",
+  "topics": [
+   "javascript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "기본 터미널 사용법",
+  "slug": "기본-터미널-사용법",
+  "link": "https://velog.io/@zzxxcc1433/%EA%B8%B0%EB%B3%B8-%ED%84%B0%EB%AF%B8%EB%84%90-%EC%82%AC%EC%9A%A9%EB%B2%95",
+  "date": "2025-10-20",
+  "summary": "directory 관련 명령어 Print Working Directory, 현재 작업 디렉토리를 확인하는 명령어이다. 현재 터미널에서 작업 중인 폴더의 경로를 출력하고, 대상 작업파일이 어떤 폴더에 있는지 헷갈릴 때 보통 사용된다. List, 현재…",
+  "tags": [],
+  "series": null,
+  "topics": [],
+  "featured": false
+ },
+ {
+  "title": "JavaScript 내장 객체 정리",
+  "slug": "JavaScript-내장-객체-정리",
+  "link": "https://velog.io/@zzxxcc1433/JavaScript-%EB%82%B4%EC%9E%A5-%EA%B0%9D%EC%B2%B4-%EC%A0%95%EB%A6%AC",
+  "date": "2025-10-20",
+  "summary": "자바스크립트는 기본적으로 다양한 내장 객체(Built-in Object)를 제공한다. 이 객체들은 복잡한 기능을 쉽게 다룰 수 있도록 도와주는 메서드와 속성의 집합이다. 이번 글에서는 자주 사용되는 Number, String, JSON, Math,…",
+  "tags": [
+   "JavaScript"
+  ],
+  "series": "JavaScript",
+  "topics": [
+   "javascript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "JavaScript로 실시간 검색 필터 구현하기",
+  "slug": "JavaScript로-실시간-검색-필터-구현하기",
+  "link": "https://velog.io/@zzxxcc1433/JavaScript%EB%A1%9C-%EC%8B%A4%EC%8B%9C%EA%B0%84-%EA%B2%80%EC%83%89-%ED%95%84%ED%84%B0-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0",
+  "date": "2025-10-20",
+  "summary": "이번 글에서는 JavaScript의 이벤트와 DOM 조작을 활용해간단한 실시간 검색 필터 기능을 만들어본다. 입력창에 검색어를 입력하면리스트(ul > li) 내의 항목 중 검색어가 포함된 항목만 보이도록 만든다. 즉, 사용자의 입력에 따라 즉시 필터…",
+  "tags": [
+   "JavaScript"
+  ],
+  "series": "JavaScript",
+  "topics": [
+   "javascript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "JavaScript 이벤트를 활용한 간단한 투두 리스트 만들기",
+  "slug": "JavaScript-이벤트를-활용한-간단한-투두-리스트-만들기",
+  "link": "https://velog.io/@zzxxcc1433/JavaScript-%EC%9D%B4%EB%B2%A4%ED%8A%B8%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B0%84%EB%8B%A8%ED%95%9C-%ED%88%AC%EB%91%90-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0",
+  "date": "2025-10-20",
+  "summary": "이 글에서는 이벤트(Event) 개념을 복습하면서JavaScript만으로 간단한 To-Do List(할 일 목록) 기능을 구현해본다. HTML, CSS, JS를 결합해 다음과 같은 기능을 만든다. 사용자가 input에 할 일을 입력한다. 추가 버튼을…",
+  "tags": [
+   "JavaScript"
+  ],
+  "series": "JavaScript",
+  "topics": [
+   "javascript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "JavaScript 페이지 로드 이벤트 정리",
+  "slug": "JavaScript-페이지-로드-이벤트-정리",
+  "link": "https://velog.io/@zzxxcc1433/JavaScript-%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A1%9C%EB%93%9C-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EC%A0%95%EB%A6%AC",
+  "date": "2025-10-20",
+  "summary": "웹 페이지를 로드할 때,언제 JavaScript가 실행되는가는 매우 중요한 문제다. 특히 이미지나 외부 리소스가 많을 경우,브라우저는 HTML 구조(DOM) 를 먼저 그린 뒤,그 이후에 외부 자원들을 불러온다. 이때 실행 시점을 제어할 수 있는 대표…",
+  "tags": [
+   "JavaScript"
+  ],
+  "series": "JavaScript",
+  "topics": [
+   "javascript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "JavaScript 이벤트 객체 정리",
+  "slug": "JavaScript-이벤트-객체-정리",
+  "link": "https://velog.io/@zzxxcc1433/JavaScript-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EA%B0%9D%EC%B2%B4-%EC%A0%95%EB%A6%AC",
+  "date": "2025-10-16",
+  "summary": "이번 글에서는 JavaScript 이벤트 객체(event object)를 중심으로,브라우저에서 발생하는 이벤트의 동작 원리와 제어 방법을 정리한다. 단순히 클릭을 처리하는 수준을 넘어,event.target, preventDefault(), stop…",
+  "tags": [
+   "JavaScript"
+  ],
+  "series": "JavaScript",
+  "topics": [
+   "javascript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "JavaScript에서 DOM 요소 선택하기",
+  "slug": "JavaScript에서-DOM-요소-선택하기",
+  "link": "https://velog.io/@zzxxcc1433/JavaScript%EC%97%90%EC%84%9C-DOM-%EC%9A%94%EC%86%8C-%EC%84%A0%ED%83%9D%ED%95%98%EA%B8%B0",
+  "date": "2025-10-16",
+  "summary": "이번 글에서는 JavaScript에서 HTML 요소를 선택하는 방법인querySelector()와 querySelectorAll()의 사용법을 정리한다. 브라우저는 HTML 문서를 읽으면 이를 DOM(Document Object Model) 형태로…",
+  "tags": [
+   "JavaScript"
+  ],
+  "series": "JavaScript",
+  "topics": [
+   "javascript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "JavaScript 이벤트(Event)와 이벤트 핸들러 정리",
+  "slug": "JavaScript-이벤트Event와-이벤트-핸들러-정리",
+  "link": "https://velog.io/@zzxxcc1433/JavaScript-%EC%9D%B4%EB%B2%A4%ED%8A%B8Event%EC%99%80-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%ED%95%B8%EB%93%A4%EB%9F%AC-%EC%A0%95%EB%A6%AC",
+  "date": "2025-10-16",
+  "summary": "이번 글에서는 자바스크립트 이벤트(Event)와이를 제어하는 이벤트 핸들러(Event Handler)의 개념 및 사용법을 정리한다. 이벤트(Event)는 웹 페이지에서 발생하는 사용자 동작이나 시스템 동작을 의미한다. 예를 들어, 버튼 클릭, 키보드…",
+  "tags": [
+   "JavaScript"
+  ],
+  "series": "JavaScript",
+  "topics": [
+   "javascript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "JavaScript 학생 성적 관리 시스템 만들기",
+  "slug": "JavaScript-학생-성적-관리-시스템-만들기",
+  "link": "https://velog.io/@zzxxcc1433/JavaScript-%ED%95%99%EC%83%9D-%EC%84%B1%EC%A0%81-%EA%B4%80%EB%A6%AC-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EB%A7%8C%EB%93%A4%EA%B8%B0",
+  "date": "2025-10-16",
+  "summary": "이번 글에서는 클래스(Class)와 객체(Object)를 활용해학생들의 성적을 관리하는 프로그램을 구현한다. 이 시스템은 학생 데이터를 효율적으로 관리하고,평균 성적 계산 및 상위권 학생 필터링을 수행하도록 설계한다. 이 시스템은 학생 정보를 객체…",
+  "tags": [
+   "JavaScript"
+  ],
+  "series": "JavaScript",
+  "topics": [
+   "javascript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "JavaScript 도서관 관리 시스템 만들기",
+  "slug": "JavaScript-도서관-관리-시스템-만들기",
+  "link": "https://velog.io/@zzxxcc1433/JavaScript-%EB%8F%84%EC%84%9C%EA%B4%80-%EA%B4%80%EB%A6%AC-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EB%A7%8C%EB%93%A4%EA%B8%B0",
+  "date": "2025-10-16",
+  "summary": "이번 글에서는 객체 지향 프로그래밍(OOP) 개념을 바탕으로Book과 Library 클래스를 이용한 도서관 관리 시스템을 구현한다. 주제: 도서관의 도서 관리 시스템 구현핵심 목표: 도서를 추가, 대여, 반납, 삭제할 수 있는 시스템을 만든다. 저자…",
+  "tags": [
+   "JavaScript"
+  ],
+  "series": "JavaScript",
+  "topics": [
+   "javascript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "JavaScript 장바구니 시스템 만들기",
+  "slug": "JavaScript-장바구니-시스템-만들기",
+  "link": "https://velog.io/@zzxxcc1433/JavaScript-%EC%9E%A5%EB%B0%94%EA%B5%AC%EB%8B%88-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EB%A7%8C%EB%93%A4%EA%B8%B0",
+  "date": "2025-10-16",
+  "summary": "객체와 배열을 활용한 쇼핑 카트 CRUD 기능 구현 이번에는 JavaScript 객체와 배열을 활용해 간단한 ‘장바구니 시스템’을 구현해본다. 데이터의 생성(Create), 조회(Read), 수정(Update), 삭제(Delete) 기능은 물론,총합…",
+  "tags": [
+   "JavaScript"
+  ],
+  "series": "JavaScript",
+  "topics": [
+   "javascript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "JavaScript Todo 리스트 만들기",
+  "slug": "JavaScript-Todo-리스트-만들기",
+  "link": "https://velog.io/@zzxxcc1433/JavaScript-Todo-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0",
+  "date": "2025-10-16",
+  "summary": "객체를 활용한 간단한 할 일 관리 시스템 구현 이번에는 Todo 객체 데이터를 기반으로 CRUD 기능을 구현해보는 미니 프로젝트를 만들었다. CRUD는 Create(생성), Read(조회), Update(수정), Delete(삭제)를 뜻하며,데이터를…",
+  "tags": [
+   "JavaScript"
+  ],
+  "series": "JavaScript",
+  "topics": [
+   "javascript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "JavaScript 객체 정리",
+  "slug": "JavaScript-객체-정리",
+  "link": "https://velog.io/@zzxxcc1433/JavaScript-%EA%B0%9D%EC%B2%B4-%EC%A0%95%EB%A6%AC",
+  "date": "2025-10-15",
+  "summary": "객체는 관련된 데이터(속성)와 함수(메서드)를 하나로 묶은 집합이다. 실제 세상의 사물을 프로그래밍적으로 표현할 때 사용하며, 객체 지향 프로그래밍의 핵심 개념이다. 참조 타입 데이터 구조이며 다양한 값을 담을 수 있다. 배열 또한 객체의 일종으로,…",
+  "tags": [
+   "JavaScript"
+  ],
+  "series": "JavaScript",
+  "topics": [
+   "javascript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "JavaScript 콜백 함수와 배열 메서드 정리",
+  "slug": "JavaScript-콜백-함수와-배열-메서드-정리",
+  "link": "https://velog.io/@zzxxcc1433/JavaScript-%EC%BD%9C%EB%B0%B1-%ED%95%A8%EC%88%98%EC%99%80-%EB%B0%B0%EC%97%B4-%EB%A9%94%EC%84%9C%EB%93%9C-%EC%A0%95%EB%A6%AC",
+  "date": "2025-10-15",
+  "summary": "콜백 함수는 다른 함수의 인자(argument)로 전달되어, 해당 함수 내부에서 실행되는 함수를 의미한다. 자바스크립트에서 함수는 객체(참조 자료형)로 취급된다. 즉, 함수는 변수에 할당될 수 있고, 다른 함수의 매개변수로 전달될 수 있다. 비동기…",
+  "tags": [
+   "JavaScript"
+  ],
+  "series": "JavaScript",
+  "topics": [
+   "javascript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "JavaScript 함수 구조",
+  "slug": "JavaScript-함수-구조",
+  "link": "https://velog.io/@zzxxcc1433/JavaScript-%ED%95%A8%EC%88%98-%EA%B5%AC%EC%A1%B0",
+  "date": "2025-10-15",
+  "summary": "자바스크립트 함수는 선언 방식뿐만 아니라, 내부 구조에서도 매우 유연하게 동작한다. 이번 글에서는 함수의 매개변수(parameter), 인자(argument), 반환값(return), 그리고 기본 / 나머지 매개변수에 대해 정리한다. 매개변수(par…",
+  "tags": [
+   "JavaScript"
+  ],
+  "series": "JavaScript",
+  "topics": [
+   "javascript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "JavaScript 함수 정리",
+  "slug": "JavaScript-함수-정리",
+  "link": "https://velog.io/@zzxxcc1433/JavaScript-%ED%95%A8%EC%88%98-%EC%A0%95%EB%A6%AC",
+  "date": "2025-10-13",
+  "summary": "자바스크립트에서 함수는 특정 작업을 수행하거나 값을 계산하는 코드의 묶음이다. 하나의 기능 단위로 동작하며 프로그램 내에서 재사용이 가능하다. 자바스크립트 함수는 자바의 메서드와 달리 반환 타입이나 매개변수의 타입을 명시할 필요가 없다. 즉, 모든…",
+  "tags": [
+   "JavaScript"
+  ],
+  "series": "JavaScript",
+  "topics": [
+   "javascript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "JavaScript 배열 정리",
+  "slug": "JavaScript-배열-정리",
+  "link": "https://velog.io/@zzxxcc1433/JavaScript-%EB%B0%B0%EC%97%B4-%EC%A0%95%EB%A6%AC",
+  "date": "2025-10-13",
+  "summary": "JavaScript 배열 정리 1. 배열 개념 JavaScript에서 배열은 여러 개의 데이터를 순차적으로 나열한 자료 구조를 의미한다. 다양한 타입을 하나의 배열에 저장할 수 있으며, 배열의 크기가 고정적이지 않고 동적이다. 인덱스 번호는 0부터…",
+  "tags": [
+   "JavaScript"
+  ],
+  "series": "JavaScript",
+  "topics": [
+   "javascript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "JavaScript 변수, 상수, 자료형, 연산자 정리",
+  "slug": "JavaScript-변수-상수-자료형-연산자-정리",
+  "link": "https://velog.io/@zzxxcc1433/JavaScript-%EB%B3%80%EC%88%98-%EC%83%81%EC%88%98-%EC%9E%90%EB%A3%8C%ED%98%95-%EC%97%B0%EC%82%B0%EC%9E%90-%EC%A0%95%EB%A6%AC",
+  "date": "2025-10-01",
+  "summary": "JavaScript에서 변수와 상수, 자료형, 연산자는 가장 기본적인 개념이다. 이번 글에서는 변수와 상수 선언, 자료형, 그리고 연산자 사용법을 단계별로 정리한다. 변수는 데이터를 저장하기 위한 공간이다. 첫 문자: 영문자, \\_, $ 가능 띄어쓰…",
+  "tags": [
+   "JavaScript"
+  ],
+  "series": "JavaScript",
+  "topics": [
+   "javascript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "JavaScript 변수와 상수 정리",
+  "slug": "JavaScript-변수와-상수-정리",
+  "link": "https://velog.io/@zzxxcc1433/JavaScript-%EB%B3%80%EC%88%98%EC%99%80-%EC%83%81%EC%88%98-%EC%A0%95%EB%A6%AC",
+  "date": "2025-10-01",
+  "summary": "변수는 데이터를 저장하기 위한 공간이다. 상수는 값이 변하지 않는 데이터를 저장하기 위한 공간이다. 첫 문자: 영문자, \\_, $ 가능 띄어쓰기 불가 대소문자 구분 예약어 사용 불가 lowerCamelCase 사용 권장 공통점: 재할당 가능, 호이스…",
+  "tags": [
+   "JavaScript"
+  ],
+  "series": "JavaScript",
+  "topics": [
+   "javascript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "JS 기본 출력문",
+  "slug": "JS-기본-출력문",
+  "link": "https://velog.io/@zzxxcc1433/JS-%EA%B8%B0%EB%B3%B8-%EC%B6%9C%EB%A0%A5%EB%AC%B8",
+  "date": "2025-10-01",
+  "summary": "JavaScript를 배우면서 가장 먼저 접하는 개념 중 하나가 출력문이다. 출력문은 코드 실행 결과를 브라우저 화면이나 콘솔 창에 보여주는역할을 하며, 상황에 따라 다른 방식으로 사용할 수 있다. 이번 글에서는 JavaScript에서 자주 쓰이는…",
+  "tags": [
+   "JavaScript"
+  ],
+  "series": "JavaScript",
+  "topics": [
+   "javascript"
+  ],
+  "featured": false
+ },
+ {
+  "title": "Node.js 설치",
+  "slug": "Node.js-설치",
+  "link": "https://velog.io/@zzxxcc1433/Node.js-%EC%84%A4%EC%B9%98",
+  "date": "2025-10-01",
+  "summary": "설치한다환경변수에 들어간다시스템 변수를 설정한다 저렇게 최상단에 놓는다user 사용자 변수도 저렇게 해놓는다버전 확인 후 사용하면 된다",
+  "tags": [
+   "환경설정"
+  ],
+  "series": null,
+  "topics": [
+   "tools"
+  ],
+  "featured": false
+ },
+ {
+  "title": "Git 여담",
+  "slug": "Git-여담",
+  "link": "https://velog.io/@zzxxcc1433/Git-%EC%97%AC%EB%8B%B4",
+  "date": "2025-09-30",
+  "summary": ".gitignore 파일에 다음 라인을 추가. gitignore에 추가했더라도 Git에 이미 커밋된 파일은 계속 추적되고 있기 때문에, Git의 캐시에서 해당 파일을 제거src/main/resources/application.properties 경로…",
+  "tags": [
+   "git",
+   "환경설정"
+  ],
+  "series": null,
+  "topics": [
+   "tools"
+  ],
+  "featured": false
+ },
+ {
+  "title": "Git 세팅",
+  "slug": "Git-세팅",
+  "link": "https://velog.io/@zzxxcc1433/Git-%EC%84%B8%ED%8C%85",
+  "date": "2025-09-30",
+  "summary": "✅ 1. Git 설치1.1. Git 설치Git 사이트 접속하여 운영체제 별 설치 파일 다운로드1.2. Git 설치 확인​✅ 2. Git 설정Git을 처음 설치한 후 사용자 정보를 설정→ Git 커밋(commit)을 남길 때 사용2.1. 사용자 이름과…",
+  "tags": [
+   "git",
+   "환경설정"
+  ],
+  "series": null,
+  "topics": [
+   "tools"
+  ],
+  "featured": false
+ },
+ {
+  "title": "기본적인 GIT 사용법",
+  "slug": "기본적인-GIT-사용법",
+  "link": "https://velog.io/@zzxxcc1433/%EA%B8%B0%EB%B3%B8%EC%A0%81%EC%9D%B8-GIT-%EC%82%AC%EC%9A%A9%EB%B2%95",
+  "date": "2025-09-08",
+  "summary": "파일 변화를 시간에 따라 기록했다가 나중에 특정 버전을 다시 꺼내올 수 있는 시스템 => 주로 소프트웨어 개발에서 소스코드의 변경사항을 관리할 때 사용된다. Git컴퓨터 파일의 변경사항을 추적하고 '여러 사용자' 들 간에 해당 파일 작업을 조율하기…",
+  "tags": [
+   "git",
+   "환경설정"
+  ],
+  "series": null,
+  "topics": [
+   "tools"
+  ],
+  "featured": false
+ },
+ {
+  "title": "VSCode 개발자 편의 기능",
+  "slug": "VSCode-개발자-편의-기능",
+  "link": "https://velog.io/@zzxxcc1433/VSCode-%EA%B0%9C%EB%B0%9C%EC%9E%90-%ED%8E%B8%EC%9D%98-%EA%B8%B0%EB%8A%A5",
+  "date": "2025-09-08",
+  "summary": "Ctrl + + / Ctrl + (Mac: Command + + / Command + )설정 > User > Text Editor > Font > Font Size설정 > User > Text Editor > Mouse Wheel Zoom설정 > t…",
+  "tags": [
+   "환경설정"
+  ],
+  "series": null,
+  "topics": [
+   "tools"
+  ],
+  "featured": false
+ },
+ {
+  "title": "서블릿",
+  "slug": "서블릿",
+  "link": "https://velog.io/@zzxxcc1433/%EC%84%9C%EB%B8%94%EB%A6%BF",
+  "date": "2025-08-28",
+  "summary": "자바로 만든 웹 프로그램클라이언트의 요청에 따라 동적으로 서버를 처리하는 자바 클래스웹서버(WAS)에 배치된다. HTTP 프로토콜을 통해 클라이언트의 요청을 받고, 자바 코드를 통해 웹 페이지가 생성하고 데이터 처리 후 응답을 반환해준다. 대부분의…",
+  "tags": [
+   "이론"
+  ],
+  "series": "이론",
+  "topics": [
+   "java"
+  ],
+  "featured": false
+ },
+ {
+  "title": "HTTP",
+  "slug": "HTTP",
+  "link": "https://velog.io/@zzxxcc1433/HTTP",
+  "date": "2025-08-27",
+  "summary": "HTTP (HyperText Transfer Protocol) HTTP는 HTML 문서와 같은 리소스들을 가져올 수 있도록 해주는 프로토콜, 규약이다. 본 게시글에선 HTTP에 대한 소소한 이야기를 해볼까 한다. 1. 인터넷의 기원 1960~1970…",
+  "tags": [
+   "이론"
+  ],
+  "series": "이론",
+  "topics": [
+   "java"
+  ],
+  "featured": false
+ },
+ {
+  "title": "Postman",
+  "slug": "Postman",
+  "link": "https://velog.io/@zzxxcc1433/Postman",
+  "date": "2025-08-12",
+  "summary": "API 개발을 보다 빠르고 쉽게 구현 할 수 있도록 도와 주는 툴이다. https&#x3A;//www.postman.com/downloads/해당 링크에서 포스트맨을 본인의 운영체제에 맞게 다운받는다. 다운로드 후 실행시키면 회원가입을 하라 한다.…",
+  "tags": [
+   "환경설정"
+  ],
+  "series": null,
+  "topics": [
+   "tools"
+  ],
+  "featured": false
+ },
+ {
+  "title": "스프링부트 실행 오류",
+  "slug": "스프링부트-실행-오류",
+  "link": "https://velog.io/@zzxxcc1433/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8-%EC%8B%A4%ED%96%89-%EC%98%A4%EB%A5%98",
+  "date": "2025-08-11",
+  "summary": "데이터 베이스와 연결 시킨 내 스프링부트 파일이 실행 실패되었다. 이유를 살펴 보니Port 8080 was already in use.이미 8080 포트가 사용중이란다. 어디서 사용중인지 잘 생각해보니 저번 시간 때 서블릿 프로젝트를 실행시켰던게 기…",
+  "tags": [
+   "Java",
+   "Spring boot",
+   "오류"
+  ],
+  "series": "오류해결",
+  "topics": [
+   "fullstack",
+   "java"
+  ],
+  "featured": false
+ },
+ {
+  "title": "스프링부트 환경설정",
+  "slug": "스프링부트-환경설정",
+  "link": "https://velog.io/@zzxxcc1433/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8-%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95",
+  "date": "2025-08-11",
+  "summary": "웹 프로그램을 쉽고 빠르게 만들 수 있도록 도와주는 자바의 웹 프레임워크이다. 스프링부트는 Spring 프레임워크에 Tomcat이라는 서버를 내장하고 있다. 자바 개발자들 사이에선 필수 스택으로 자리잡고있는 기술이다. spring io의 Initia…",
+  "tags": [
+   "Java",
+   "Spring boot",
+   "환경설정"
+  ],
+  "series": null,
+  "topics": [
+   "fullstack",
+   "java",
+   "tools"
+  ],
+  "featured": false
+ },
+ {
+  "title": "Java Stream에 대하여",
+  "slug": "Java-Stream에-대하여",
+  "link": "https://velog.io/@zzxxcc1433/Java-Stream%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC",
+  "date": "2025-07-28",
+  "summary": "자바 8버전 부터 도입된 기능이다. 컬렉션 혹은 배열에 저장된 데이터를 선언형(직관적이고, 간결함) 방식으로 처리할 수 있게 지원하는 도구이다. 스트림은 데이터 필터링, 매핑, 변환, 집계 등의 다양한 작업을 수행 가능하며, 람다식과 결합해 가독성…",
+  "tags": [
+   "Java"
+  ],
+  "series": "Java",
+  "topics": [
+   "java"
+  ],
+  "featured": false
+ },
+ {
+  "title": "My SQL 환경설정",
+  "slug": "My-SQL-환경설정",
+  "link": "https://velog.io/@zzxxcc1433/My-SQL-%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95",
+  "date": "2025-07-28",
+  "summary": "여기서 우리가 쓸 건 맨 아래있는이거다. 이걸 클릭하면 다음 창으로 넘어가게 된다. 해당 창에서 우리가 쓸 건 MySQL Installer for Windows 이다. 왜냐면 본인의 컴퓨터는 윈도우이기 때문이다. 그럼 다음과 같은 창이 뜰 텐데, 여…",
+  "tags": [
+   "mysql",
+   "sql",
+   "환경설정"
+  ],
+  "series": null,
+  "topics": [
+   "tools"
+  ],
+  "featured": false
+ },
+ {
+  "title": "람다와 함수형 인터페이스",
+  "slug": "람다와-함수형-인터페이스",
+  "link": "https://velog.io/@zzxxcc1433/%EB%9E%8C%EB%8B%A4%EC%99%80-%ED%95%A8%EC%88%98%ED%98%95-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4",
+  "date": "2025-07-24",
+  "summary": "학생 점수 처리 시스템 간단하게 람다식과 주요 함수형 인터페이스를 사용해 공부를 해보려 한다. 이 시스템은 각 학생의 점수를 확인하고, 등급으로 변환하고, 출력도 해보고, 무작위 보너스 점수도 부여해 관리하는 로직을 가졌다. 1. 데이터 정의 우선…",
+  "tags": [
+   "Java"
+  ],
+  "series": "Java",
+  "topics": [
+   "java"
+  ],
+  "featured": false
+ },
+ {
+  "title": "람다(Lambda)",
+  "slug": "람다Lambda",
+  "link": "https://velog.io/@zzxxcc1433/%EB%9E%8C%EB%8B%A4Lambda",
+  "date": "2025-07-22",
+  "summary": "Lambda Expression 람다 표현식이라고 하는 이 자바 문법은, 함수형 인터페이스 구현에 사용된다.(자바 8 버전부터 도입되었다) 함수를 무려 하나의 식(!!) 으로 간결하게 표현이 가능하고, 익명 클래스를 대체해 코드의 가독성을 향상시켜준…",
+  "tags": [
+   "Java"
+  ],
+  "series": null,
+  "topics": [
+   "java"
+  ],
+  "featured": false
+ },
+ {
+  "title": "자바 롬복(LomBok) 설치 및 적용",
+  "slug": "자바-롬복LomBok-설치-및-적용",
+  "link": "https://velog.io/@zzxxcc1433/%EC%9E%90%EB%B0%94-%EB%A1%AC%EB%B3%B5LomBok-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%A0%81%EC%9A%A9",
+  "date": "2025-07-15",
+  "summary": "https&#x3A;//mvnrepository.com/해당 사이트에 들어가 검색창에 들어간다. 그럼 해당 화면이 출력될 것이다. 그런 다음 Project Lombok을 클릭한다. 그럼 위와 같은 화면이 출력될 것이다. 여기서 위와 같은 파트에 Gr…",
+  "tags": [
+   "Java",
+   "환경설정"
+  ],
+  "series": "Java",
+  "topics": [
+   "java",
+   "tools"
+  ],
+  "featured": false
+ },
+ {
+  "title": "결합도와 응집도",
+  "slug": "결합도와-응집도",
+  "link": "https://velog.io/@zzxxcc1433/%EA%B2%B0%ED%95%A9%EB%8F%84%EC%99%80-%EC%9D%91%EC%A7%91%EB%8F%84",
+  "date": "2025-07-14",
+  "summary": "결합도와 응집도 내용을 알기 전에 '모듈' 이란 것에 대해 알아야 한다. 모듈이란, 소프트웨어를 각 기능 별로 나눈 소스 단위이다. 하나의 큰 소프트웨어를 분리시키는 과정은 모듈화라 한다. 1. 결합도 결합도(Coupling) : 개별 모듈 간 상호…",
+  "tags": [
+   "개발",
+   "이론",
+   "정보처리기사"
+  ],
+  "series": "이론",
+  "topics": [
+   "java"
+  ],
+  "featured": false
+ },
+ {
+  "title": "SOLID 원칙",
+  "slug": "SOLID-원칙",
+  "link": "https://velog.io/@zzxxcc1433/SOLID-%EC%9B%90%EC%B9%99",
+  "date": "2025-07-14",
+  "summary": "Single 단일Responsobility 책임principle 원칙Open 개방Closed 폐쇄Principle 원칙Liskov 리스코프(사람 이름)Substitution 치환Principle 원칙Interface 인터페이스Segregati",
+  "tags": [
+   "Java",
+   "개발",
+   "이론",
+   "정보처리기사"
+  ],
+  "series": "이론",
+  "topics": [
+   "java"
+  ],
+  "featured": false
+ },
+ {
+  "title": "Java 기초용어",
+  "slug": "Java-기초용어",
+  "link": "https://velog.io/@zzxxcc1433/Java-%EA%B8%B0%EC%B4%88%EC%9A%A9%EC%96%B4",
+  "date": "2025-07-14",
+  "summary": "1. 접근제한자 Access Modifiers라고 하는 이 녀석은 클래스, 메서드, 필드 등에 대한 접근 권한을 제어하는 데에 사용된다. 종류는 총 4가지다. public - 모든 클래스에서 접근이 가능하다. protected - 같은 패키지 또는…",
+  "tags": [
+   "Java",
+   "개발",
+   "이론",
+   "정보처리기사"
+  ],
+  "series": "이론",
+  "topics": [
+   "java"
+  ],
+  "featured": false
+ },
+ {
+  "title": "인텔리제이 패키지 생성 후 클래스 생성",
+  "slug": "인텔리제이-패키지-생성-후-클래스-생성",
+  "link": "https://velog.io/@zzxxcc1433/%EC%9D%B8%ED%85%94%EB%A6%AC%EC%A0%9C%EC%9D%B4-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%83%9D%EC%84%B1-%ED%9B%84-%ED%81%B4%EB%9E%98%EC%8A%A4-%EC%83%9D%EC%84%B1",
+  "date": "2025-07-08",
+  "summary": "example 폴더 > 새로만들기 > 패키지 탭 클릭그럼 이렇게 새 패키지 이름을 설정할 수 있다. org.example. 이 어떤 뜻인지 잠깐 살펴보고 가자면, org 안의 example 안의 .(패키지명) 을 설명하는 일종의 경로다. 이름을 ch…",
+  "tags": [
+   "Java",
+   "인텔리제이"
+  ],
+  "series": null,
+  "topics": [
+   "java"
+  ],
+  "featured": false
+ },
+ {
+  "title": "인텔리제이에서 프로젝트 생성하기",
+  "slug": "인텔리제이에서-프로젝트-생성하기",
+  "link": "https://velog.io/@zzxxcc1433/%EC%9D%B8%ED%85%94%EB%A6%AC%EC%A0%9C%EC%9D%B4%EC%97%90%EC%84%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0",
+  "date": "2025-07-07",
+  "summary": "파일 > 새로만들기 > 프로젝트 탭 클릭프로젝트의 이름과 경로 설정, 시스템 빌드는 Gradle로 설정한다그 후 JDK 버전을 원하는 버전으로 설정 한다. 여기서 참고할게 있다. 프로젝트의 이름을 다르게 바꾸면, 아티팩트 ID가 프로젝트의 이름과 동…",
+  "tags": [
+   "Java",
+   "개발",
+   "환경설정"
+  ],
+  "series": null,
+  "topics": [
+   "java",
+   "tools"
+  ],
+  "featured": false
+ },
+ {
+  "title": "메서드 오버로딩을 이용한 주먹구구식 계산기",
+  "slug": "메서드-오버로딩을-이용한-주먹구구식-계산기",
+  "link": "https://velog.io/@zzxxcc1433/%EB%A9%94%EC%84%9C%EB%93%9C-%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%A3%BC%EB%A8%B9%EA%B5%AC%EA%B5%AC%EC%8B%9D-%EA%B3%84%EC%82%B0%EA%B8%B0",
+  "date": "2025-07-07",
+  "summary": "를 메서드 오버로딩 개념을 활용해 만들어보려했다. class Operation부터 정의를 하고자 한다. 되는대로 생각나는 더하기, 빼기, 곱하기, 나누기의 입력값 경우의 수를 나눠, 타입별로 받을 수 있게 설계했다. 그리고 메인 메서드 작성 시 Sc…",
+  "tags": [
+   "Java"
+  ],
+  "series": "Java",
+  "topics": [
+   "java"
+  ],
+  "featured": false
+ },
+ {
+  "title": "파이썬 시간복잡도 코랩",
+  "slug": "파이썬-시간복잡도-코랩",
+  "link": "https://velog.io/@zzxxcc1433/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84-%EC%BD%94%EB%9E%A9",
+  "date": "2025-07-04",
+  "summary": "2년 전쯤에 공부한 파이썬 코랩에 저장한 Python 시간복잡도 공부를 발견했다. https://colab.research.google.com/drive/19G1zZJY6GOcLNfrT0IhY_xg6WYkevu2M?usp=sharing",
+  "tags": [
+   "python",
+   "이론"
+  ],
+  "series": "이론",
+  "topics": [
+   "java"
+  ],
+  "featured": false
+ },
+ {
+  "title": "유니티 환경설정",
+  "slug": "유니티-환경설정",
+  "link": "https://velog.io/@zzxxcc1433/%EC%9C%A0%EB%8B%88%ED%8B%B0-%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95",
+  "date": "2025-07-04",
+  "summary": "https&#x3A;//unity.com/kr/download해당 링크에 들어가면 유니티를 다운받을 수 있다. 유니티는 흔히 알려진대로 게임을 개발 할 수 있는 엔진이다. AI 쪽에선 시각적인 시뮬레이션을 돌리고 싶을 때도 사용한다. 유니티를 다운받…",
+  "tags": [
+   "유니티",
+   "환경설정"
+  ],
+  "series": null,
+  "topics": [
+   "tools"
+  ],
+  "featured": false
+ },
+ {
+  "title": "Intelli J 환경설정",
+  "slug": "Intelli-J-환경설정",
+  "link": "https://velog.io/@zzxxcc1433/Intelli-J-%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95",
+  "date": "2025-07-04",
+  "summary": "인텔리제이는 IDE, 통합개발환경이다. 다른 IDE로는 이클립스, 서브라임텍스트, 비주얼 스튜디오 등이 있다. 지금부터 인텔리제이를 한번 설치해보겠다.▲JETBRAINS 인텔리제이 IDEA홈페이지https&#x3A;//www.jetbrains.com…",
+  "tags": [
+   "환경설정"
+  ],
+  "series": null,
+  "topics": [
+   "tools"
+  ],
+  "featured": false
+ },
+ {
+  "title": "JDK 환경설정",
+  "slug": "JDK-환경설정",
+  "link": "https://velog.io/@zzxxcc1433/JDK-%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95",
+  "date": "2025-07-04",
+  "summary": "Java 자바Development 개발Kit 키트자바 환경에서 돌아가는 프로그램을 개발하는데 필요한 툴을 모아놓은 소프트웨어 패키지이다. 개발 도구를 담아놓은 키트라고 본인은 생각하고 있다. https&#x3A;//www.oracle.com/kr/j…",
+  "tags": [
+   "Java",
+   "개발",
+   "환경설정"
+  ],
+  "series": "Java",
+  "topics": [
+   "java",
+   "tools"
+  ],
+  "featured": false
+ },
+ {
+  "title": "천사게임 이론 강화학습 프로젝트",
+  "slug": "천사게임-이론-강화학습-프로젝트",
+  "link": "https://velog.io/@zzxxcc1433/%EC%B2%9C%EC%82%AC%EA%B2%8C%EC%9E%84-%EC%9D%B4%EB%A1%A0-%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8",
+  "date": "2025-06-10",
+  "summary": "천사게임이란? 이 이론의 존재는 아래 영상에서부터 알게되었다. https://www.youtube.com/watch?v=sxiKlOK3EJY&t=34s John Conway 가 제시한 문제중 하나인데,",
+  "tags": [
+   "강화학습",
+   "게임이론",
+   "유니티",
+   "인공지능"
+  ],
+  "series": null,
+  "topics": [
+   "ai"
+  ],
+  "featured": true
+ },
+ {
+  "title": "목표",
+  "slug": "목표",
+  "link": "https://velog.io/@zzxxcc1433/%EB%AA%A9%ED%91%9C",
+  "date": "2025-03-26",
+  "summary": "소프트웨어학과를 3학년까지 재학한 후 4학년 1학기가 되는 해에 휴학을 내었다. 이유는 더 높은 졸업작품의 퀄리티와 개발자로서의 실력 증진을 위해서다. 휴학을 하는 동안 정보처리기사 자격증과, SQLD, 그리고 국비 수업도 들으면서 개발자로서의 역량…",
+  "tags": [],
+  "series": null,
+  "topics": [],
+  "featured": false
+ }
+]

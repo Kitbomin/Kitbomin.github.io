@@ -21,10 +21,10 @@
     <div class="wrap nav-inner">
       <a href="#top" class="logo">kitbomin<span>.dev</span></a>
       <nav class="nav-links" aria-label="주요 메뉴">
-        <a href="#about">About</a>
+        <a href="#about" class="hide-sm">About</a>
         <a href="#thesis">Thesis</a>
         <a href="#projects">Projects</a>
-        <a href="#learning">Learning</a>
+        <a href="#learning" class="hide-sm">Learning</a>
         <a href="#blog" data-section-link="blog">Blog</a>
         <button class="theme-btn" type="button" aria-label="다크 모드 전환" id="themeBtn">◐</button>
       </nav>
@@ -85,13 +85,20 @@
       <p class="meta" id="learningMore"></p>
     </section>
 
-    <!-- Blog (velog 연동은 3단계에서 채워짐; 글이 없으면 숨김) -->
+    <!-- Blog (data/posts.json ← scripts/sync-velog.mjs; 글이 없으면 숨김) -->
     <section id="blog" class="wrap section" hidden>
       <div class="section-head">
         <h2 class="section-title">Tech Blog</h2>
-        <a class="more" id="velogMore" target="_blank" rel="noopener">velog에서 전체 보기 →</a>
+        <a class="more" href="blog/">전체 글 아카이브 →</a>
       </div>
+      <p class="muted lead-sm" id="blogIntro"></p>
+      <div class="blog-stats" id="blogStats"></div>
+      <div class="topic-chips" id="topicChips"></div>
+      <h3 class="sub-title">추천 글</h3>
       <div id="postGrid" class="grid"></div>
+      <h3 class="sub-title">최근 글</h3>
+      <ul class="recent" id="recentPosts"></ul>
+      <a class="btn" id="velogMore" target="_blank" rel="noopener">velog에서 보기</a>
     </section>
   </main>
 

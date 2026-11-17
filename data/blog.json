@@ -1,0 +1,22 @@
+{
+  "username": "zzxxcc1433",
+  "intro": "배운 것을 그날 바로 정리하는 습관으로 쌓은 기록입니다. 수업 내용 정리부터 직접 구현한 기능의 구조 분석, 오류 해결까지 남깁니다.",
+  "topics": [
+    { "id": "ai", "label": "AI · 자연어처리", "series": ["자연어처리"], "tags": ["인공지능", "강화학습"] },
+    { "id": "fullstack", "label": "풀스택 구현", "series": ["Major-Community-proj", "FullStack-BoardProj", "오류해결"], "tags": ["Spring boot", "Fullstack"] },
+    { "id": "react", "label": "React", "series": ["React"] },
+    { "id": "typescript", "label": "TypeScript", "series": ["TypeScript"] },
+    { "id": "javascript", "label": "JavaScript", "series": ["JavaScript"] },
+    { "id": "java", "label": "Java · CS 이론", "series": ["Java", "이론"], "tags": ["Java"] },
+    { "id": "tools", "label": "환경설정 · 도구", "tags": ["환경설정", "git"] },
+    { "id": "algorithm", "label": "코딩테스트", "series": ["코딩테스트"] }
+  ],
+  "featured": [
+    "Spring-Boot로-구현한-JWT-인증-Access-Token-Refresh-Token",
+    "Spring-Boot-React-Zustand-Axios-기반-인증-구조-분석",
+    "React-Axios-API-구조-설계-인스턴스-인터셉터-서비스-계층",
+    "자연어-처리-어휘-분석-및-형태소-분석과-품사-태깅POS-Tagging의-이해",
+    "천사게임-이론-강화학습-프로젝트",
+    "FullStack-Major-Community-1-기획-설계-및-환경-세팅"
+  ]
+}

@@ -1,0 +1,5 @@
+# 로컬(Windows)과 GitHub Actions(Linux)가 같은 줄바꿈을 쓰도록 고정 — 동기화 시 줄바꿈 차이만으로 커밋이 생기지 않게
+* text=auto
+*.json text eol=lf
+*.yml text eol=lf
+*.mjs text eol=lf

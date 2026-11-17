@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>기술 블로그 아카이브 | 김보민</title>
+  <meta name="description" content="김보민의 velog 기술 블로그 전체 글을 주제별로 정리한 아카이브 — AI·자연어처리, 풀스택 구현, React, TypeScript, Java.">
+  <meta property="og:title" content="기술 블로그 아카이브 | 김보민">
+  <meta property="og:description" content="velog 기술 블로그 글을 주제별로 찾아보세요.">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/project.css">
+  <script>
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+  <style>
+    .toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 18px; }
+    .search { flex: 1 1 240px; min-width: 0; padding: 10px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--text); font: inherit; font-size: 15px; }
+    .search:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+    .filters { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+    .filters button { border: 1px solid var(--line); background: var(--surface); color: var(--text); border-radius: 999px; padding: 6px 12px; font: inherit; font-size: 14px; cursor: pointer; }
+    .filters button em { font-style: normal; font-size: 12px; color: var(--muted); margin-left: 4px; }
+    .filters button[aria-pressed="true"] { background: var(--text); color: var(--bg); border-color: var(--text); }
+    .filters button[aria-pressed="true"] em { color: inherit; opacity: .7; }
+    .month { margin: 28px 0 8px; font-size: 14px; color: var(--muted); font-weight: 600; font-variant-numeric: tabular-nums; }
+    .plist { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; grid-template-columns: minmax(0, 1fr); }
+    .plist li, .plist a { min-width: 0; overflow-wrap: anywhere; }
+    .plist a { display: grid; gap: 4px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); text-decoration: none; transition: border-color .15s; }
+    .plist a:hover { border-color: var(--accent); }
+    .plist b { font-size: 16px; line-height: 1.45; }
+    .plist .sum { font-size: 14px; color: var(--muted); }
+    .plist .row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 12px; color: var(--muted); }
+    .plist .star { color: var(--spk3); font-weight: 700; }
+    mark { background: color-mix(in srgb, var(--spk3) 35%, transparent); color: inherit; border-radius: 3px; }
+    .empty { padding: 40px 0; text-align: center; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a href="../" class="logo">kitbomin<span>.dev</span></a>
+      <nav class="nav-links" aria-label="페이지 메뉴">
+        <a href="../#projects">Projects</a>
+        <a href="../#blog">Blog</a>
+        <button class="theme-btn" type="button" aria-label="다크 모드 전환" id="themeBtn">◐</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap p-hero">
+      <a class="back" href="../#blog">← 포트폴리오 홈</a>
+      <span class="label">velog 아카이브</span>
+      <h1>기술 블로그</h1>
+      <p class="tagline" id="intro"></p>
+      <div class="hero-actions">
+        <a class="btn" href="https://velog.io/@zzxxcc1433/posts" target="_blank" rel="noopener">velog에서 보기</a>
+      </div>
+    </section>
+
+    <section class="wrap section" style="padding-top:8px">
+      <div class="toolbar">
+        <input class="search" id="q" type="search" placeholder="제목 · 요약 · 태그 검색" aria-label="글 검색">
+        <span class="meta" id="count"></span>
+      </div>
+      <div class="filters" id="filters" role="toolbar" aria-label="주제 필터"></div>
+      <div id="list"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>© <span id="year"></span> 김보민 · Kim BoMin</span>
+      <span class="footer-links"><a href="../">← 포트폴리오 홈</a></span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/theme.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    var $ = function (id) { return document.getElementById(id); };
+    var esc = function (s) {
+      return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      });
+    };
+    var posts = [], topics = [], current = 'all', label = {};
+
+    function highlight(text, q) {
+      var t = esc(text);
+      if (!q) return t;
+      var i = t.toLowerCase().indexOf(esc(q).toLowerCase());
+      if (i < 0) return t;
+      return t.slice(0, i) + '<mark>' + t.slice(i, i + esc(q).length) + '</mark>' + t.slice(i + esc(q).length);
+    }
+
+    function renderFilters() {
+      var all = [{ id: 'all', label: '전체', n: posts.length }, { id: 'featured', label: '★ 추천', n: posts.filter(function (p) { return p.featured; }).length }]
+        .concat(topics.map(function (t) {
+          return { id: t.id, label: t.label, n: posts.filter(function (p) { return p.topics.indexOf(t.id) !== -1; }).length };
+        }));
+      $('filters').innerHTML = all.map(function (f) {
+        return '<button type="button" data-id="' + esc(f.id) + '" aria-pressed="' + (f.id === current) + '">' + esc(f.label) + '<em>' + f.n + '</em></button>';
+      }).join('');
+      $('filters').querySelectorAll('button').forEach(function (b) {
+        b.addEventListener('click', function () { setTopic(b.dataset.id); });
+      });
+    }
+
+    function setTopic(id) {
+      current = id;
+      try { history.replaceState(null, '', id === 'all' ? location.pathname : '#' + id); } catch (e) {}
+      renderFilters(); renderList();
+    }
+
+    function renderList() {
+      var q = $('q').value.trim().toLowerCase();
+      var list = posts.filter(function (p) {
+        if (current === 'featured' && !p.featured) return false;
+        if (current !== 'all' && current !== 'featured' && p.topics.indexOf(current) === -1) return false;
+        if (!q) return true;
+        return (p.title + ' ' + p.summary + ' ' + p.tags.join(' ') + ' ' + (p.series || '')).toLowerCase().indexOf(q) !== -1;
+      });
+      $('count').textContent = list.length + '개 / 전체 ' + posts.length + '개';
+      if (!list.length) { $('list').innerHTML = '<p class="empty">조건에 맞는 글이 없습니다.</p>'; return; }
+
+      var html = '', month = '';
+      list.forEach(function (p) {
+        var m = p.date.slice(0, 7);
+        if (m !== month) {
+          if (month) html += '</ul>';
+          month = m;
+          html += '<h2 class="month">' + m.replace('-', '년 ') + '월</h2><ul class="plist">';
+        }
+        html += '<li><a href="' + esc(p.link) + '" target="_blank" rel="noopener">' +
+          '<b>' + (p.featured ? '<span class="star">★ </span>' : '') + highlight(p.title, q) + '</b>' +
+          (p.summary ? '<span class="sum">' + highlight(p.summary, q) + '</span>' : '') +
+          '<span class="row">' + esc(p.date) +
+          (p.series ? ' · 시리즈 ' + esc(p.series) : '') +
+          p.topics.map(function (t) { return ' <span class="chip">' + esc(label[t] || t) + '</span>'; }).join('') +
+          '</span></a></li>';
+      });
+      $('list').innerHTML = html + '</ul>';
+    }
+
+    Promise.all([
+      fetch('../data/posts.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }),
+      fetch('../data/blog.json', { cache: 'no-cache' }).then(function (r) { return r.json(); })
+    ]).then(function (r) {
+      posts = r[0]; topics = r[1].topics; $('intro').textContent = r[1].intro;
+      topics.forEach(function (t) { label[t.id] = t.label; });
+      var h = location.hash.slice(1);
+      if (h === 'featured' || topics.some(function (t) { return t.id === h; })) current = h;
+      renderFilters(); renderList();
+    }).catch(function (e) {
+      console.error(e);
+      $('list').innerHTML = '<p class="empty">글 목록을 불러오지 못했습니다.</p>';
+    });
+
+    var timer;
+    $('q').addEventListener('input', function () { clearTimeout(timer); timer = setTimeout(renderList, 120); });
+    window.addEventListener('hashchange', function () {
+      var h = location.hash.slice(1) || 'all';
+      if (h !== current) setTopic(h);
+    });
+  })();
+  </script>
+</body>
+</html>

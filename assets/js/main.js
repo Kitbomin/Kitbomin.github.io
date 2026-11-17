@@ -137,21 +137,49 @@
     if (l.more) $('learningMore').textContent = l.more.label + ': ' + l.more.text;
   }
 
-  function renderPosts(posts) {
+  function renderPosts(posts, blog) {
     if (!posts || !posts.length) return; // 글이 없으면 섹션 숨김 유지
+    blog = blog || { topics: [] };
     $('blog').hidden = false;
-    $('postGrid').innerHTML = posts.slice(0, 6).map(function (p) {
+    $('blogIntro').textContent = blog.intro || '';
+
+    var months = {};
+    posts.forEach(function (p) { months[p.date.slice(0, 7)] = 1; });
+    var first = posts[posts.length - 1].date.slice(0, 7).replace('-', '.');
+    $('blogStats').innerHTML =
+      '<div><b>' + posts.length + '</b><span>개의 글</span></div>' +
+      '<div><b>' + blog.topics.length + '</b><span>개 주제</span></div>' +
+      '<div><b>' + Object.keys(months).length + '</b><span>개월 기록</span></div>' +
+      '<div><b>' + esc(first) + '</b><span>부터</span></div>';
+
+    $('topicChips').innerHTML = blog.topics.map(function (t) {
+      var n = posts.filter(function (p) { return p.topics.indexOf(t.id) !== -1; }).length;
+      return '<a class="topic" href="blog/#' + esc(t.id) + '">' + esc(t.label) + ' <em>' + n + '</em></a>';
+    }).join('');
+
+    var label = {};
+    blog.topics.forEach(function (t) { label[t.id] = t.label; });
+    var featured = posts.filter(function (p) { return p.featured; });
+    if (!featured.length) featured = posts.slice(0, 6);
+    $('postGrid').innerHTML = featured.map(function (p) {
       return '<a class="card p-card post" href="' + esc(p.link) + '" target="_blank" rel="noopener">' +
-        '<div class="meta">' + esc(p.date) + '</div><h3>' + esc(p.title) + '</h3>' +
-        (p.summary ? '<p class="muted">' + esc(p.summary) + '</p>' : '') +
-        chips(p.tags) + '</a>';
+        '<div class="meta">' + esc(p.date) + (p.topics[0] ? ' · ' + esc(label[p.topics[0]]) : '') + '</div>' +
+        '<h3>' + esc(p.title) + '</h3>' +
+        (p.summary ? '<p class="muted">' + esc(p.summary) + '</p>' : '') + '</a>';
+    }).join('');
+
+    $('recentPosts').innerHTML = posts.slice(0, 5).map(function (p) {
+      return '<li><a href="' + esc(p.link) + '" target="_blank" rel="noopener">' +
+        '<span class="r-date">' + esc(p.date) + '</span><span class="r-title">' + esc(p.title) + '</span></a></li>';
     }).join('');
   }
 
   Promise.all([getJSON('data/site.json'), getJSON('data/projects.json')])
     .then(function (r) { renderSite(r[0]); renderProjects(r[1]); })
     .catch(function (e) { console.error(e); });
-  getJSON('data/posts.json').then(renderPosts).catch(function () {});
+  Promise.all([getJSON('data/posts.json'), getJSON('data/blog.json').catch(function () { return null; })])
+    .then(function (r) { renderPosts(r[0], r[1]); })
+    .catch(function () {});
   getJSON('data/learning.json').then(renderLearning).catch(function () {});
 
   // 블로그 섹션이 숨겨져 있으면 메뉴 링크도 숨김
