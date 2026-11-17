@@ -1,0 +1,38 @@
+{
+  "name": "김보민",
+  "nameEn": "Kim BoMin",
+  "role": "AI · Backend Developer",
+  "tagline": "음성 AI와 로컬 LLM으로 반복 업무를 자동화하는 개발자",
+  "intro": "소프트웨어학과에서 백엔드와 시스템을, 인공지능공학과 복수전공으로 음성인식·LLM·예측 모델을 공부했습니다. 모델을 직접 조합해 실제로 돌아가는 서비스로 만들고, 그 성능을 숫자로 검증하는 일을 좋아합니다.",
+  "links": {
+    "github": "https://github.com/Kitbomin",
+    "velog": "https://velog.io/@zzxxcc1433/posts",
+    "email": ["bomingim022@gmail.com", "zzxxcc1433@naver.com"]
+  },
+  "education": [
+    {
+      "school": "동서대학교",
+      "major": "소프트웨어학과",
+      "minor": "인공지능공학과 복수전공",
+      "period": "2022 – 2027 (졸업예정)"
+    }
+  ],
+  "thesis": {
+    "title": "WhisperX 및 Ollama 기반 회의 음성 분석 및 Trello 업무 자동화 시스템",
+    "titleEn": "A Meeting Speech Analysis and Trello Task Automation System Based on WhisperX and Ollama",
+    "summary": "회의 음성으로부터 음성인식·화자분리·실행 항목 추출·Trello 등록을 모두 로컬에서 수행하는 파이프라인을 설계·구현하고, 한국어 대화 음성에서 WER·CER·sWER로 성능을 평가했습니다.",
+    "metrics": [
+      { "label": "WER", "value": "25.45%" },
+      { "label": "CER", "value": "12.88%" },
+      { "label": "sWER", "value": "21.82%" }
+    ],
+    "pdf": "assets/docs/thesis.pdf",
+    "project": "meeting-ai"
+  },
+  "stack": {
+    "AI / Data": ["Python", "WhisperX", "pyannote.audio", "Ollama · Llama 3.1", "PyTorch", "pandas · NumPy"],
+    "Backend": ["FastAPI", "Spring Boot", "Java", "REST API"],
+    "Frontend / Viz": ["Streamlit", "JavaScript", "Processing · p5.js"],
+    "Tools": ["Git · GitHub", "Docker", "Trello API"]
+  }
+}
