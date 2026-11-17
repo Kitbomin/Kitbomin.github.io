@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회의 AI 자동화 | 김보민</title>
+  <meta name="description" content="WhisperX · pyannote · Llama 3.1로 회의 음성에서 업무를 추출해 Trello에 등록하는 로컬 파이프라인. 시연 영상과 실제 실행 결과 데모.">
+  <meta property="og:title" content="회의 음성 분석 · Trello 업무 자동화 | 김보민">
+  <meta property="og:description" content="음성인식 → 화자분리 → 업무 추출 → Trello, 모두 로컬에서.">
+  <meta property="og:image" content="https://kitbomin.github.io/projects/meeting-ai/poster.jpg">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/project.css">
+  <script>
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a href="../../" class="logo">kitbomin<span>.dev</span></a>
+      <nav class="nav-links" aria-label="페이지 메뉴">
+        <a href="#demo">Demo</a>
+        <a href="#architecture">구조</a>
+        <a href="#evaluation">평가</a>
+        <a href="#history">과정</a>
+        <button class="theme-btn" type="button" aria-label="다크 모드 전환" id="themeBtn">◐</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap p-hero">
+      <a class="back" href="../../#projects">← 전체 프로젝트</a>
+      <span class="label">대표 프로젝트 · 졸업작품</span>
+      <h1>회의 음성 분석 · Trello 업무 자동화</h1>
+      <p class="tagline">회의 녹음 파일 하나로 음성인식 → 화자분리 → 업무 추출 → Trello 등록까지.
+        음성과 전체 전사문은 내 PC 밖으로 나가지 않고, <strong>정리된 업무만</strong> 전송됩니다.</p>
+      <dl class="facts">
+        <div><dt>기간</dt><dd>2026.03 – 2026.11</dd></div>
+        <div><dt>형태</dt><dd>개인 · 졸업논문</dd></div>
+        <div><dt>역할</dt><dd>설계 · 구현 · 평가 전부</dd></div>
+      </dl>
+      <div class="chips">
+        <span class="chip">WhisperX</span><span class="chip">pyannote.audio</span><span class="chip">Ollama · Llama 3.1 8B</span>
+        <span class="chip">FastAPI</span><span class="chip">Streamlit</span><span class="chip">Trello API</span><span class="chip">jiwer</span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn primary" href="https://github.com/Kitbomin/meeting-ai-service-proj" target="_blank" rel="noopener">GitHub 저장소</a>
+        <a class="btn" href="../../#thesis">졸업논문</a>
+      </div>
+    </section>
+
+    <!-- 시연 영상 -->
+    <section class="wrap section">
+      <h2 class="section-title">시연 영상</h2>
+      <video class="video" controls preload="metadata" poster="poster.jpg" playsinline>
+        <source src="demo.mp4" type="video/mp4">
+        브라우저가 영상 재생을 지원하지 않습니다. <a href="demo.mp4">영상 내려받기</a>
+      </video>
+      <p class="caption">학술제 출품용 84초 시연. 가상 대본(영희·철수)을 두 사람이 읽은 녹음을 대시보드에 올려 Trello 카드 4개가 만들어지는 과정.</p>
+    </section>
+
+    <!-- 인터랙티브 데모 -->
+    <section id="demo" class="wrap section">
+      <div class="section-head">
+        <h2 class="section-title">실행 결과 다시 보기</h2>
+        <span class="meta" id="demoNote"></span>
+      </div>
+      <p class="muted intro">아래는 브라우저에서 모델을 돌리는 것이 아니라, 같은 녹음을 <code>run_pipeline.py</code>로 실제 처리한 결과(JSON)를 음성과 맞춰 재생합니다. 발화나 업무 카드를 누르면 해당 위치로 이동합니다.</p>
+
+      <div class="card player">
+        <div class="player-bar">
+          <button class="play" id="playBtn" type="button" aria-label="재생">▶</button>
+          <div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+          <div class="legend" id="legend"></div>
+        </div>
+        <div class="timeline" id="timeline" role="slider" aria-label="재생 위치" tabindex="0">
+          <div class="playhead" id="playhead"></div>
+        </div>
+        <audio id="audio" preload="metadata" src="meeting.mp3"></audio>
+      </div>
+
+      <div class="demo-grid">
+        <div class="card">
+          <h3 class="card-title">전사 · 화자분리</h3>
+          <ol class="transcript" id="transcript"></ol>
+        </div>
+        <div>
+          <div class="card board">
+            <h3 class="card-title">추출된 업무 → Trello <span class="count" id="itemCount"></span></h3>
+            <div class="todo" id="items"></div>
+          </div>
+          <div class="stats" id="timing"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 구조 -->
+    <section id="architecture" class="wrap section">
+      <h2 class="section-title">파이프라인 구조</h2>
+      <ol class="flow">
+        <li><b>음성 입력</b><span>wav · mp3 · m4a · mp4<br>Streamlit 대시보드 / FastAPI</span></li>
+        <li><b>음성인식</b><span>WhisperX medium<br>강제 정렬로 단어 타임스탬프</span></li>
+        <li><b>화자분리</b><span>pyannote.audio 3.1<br>단어 단위 화자 할당</span></li>
+        <li><b>업무 추출</b><span>Ollama · Llama 3.1 8B<br>temperature 0, JSON 출력</span></li>
+        <li class="out"><b>Trello 등록</b><span>업무 항목만 외부 전송<br>담당자·기한은 설명란</span></li>
+      </ol>
+      <p class="local-note"><span class="dot"></span>1 – 4단계는 모두 로컬 PC(RTX 4060 Laptop)에서 실행됩니다. 회의 내용을 외부 API로 보내기 어려운 조직을 가정한 구성입니다.</p>
+    </section>
+
+    <!-- 평가 -->
+    <section id="evaluation" class="wrap section">
+      <h2 class="section-title">성능 평가</h2>
+      <p class="muted intro">한국어 대화 음성 3개(총 74.1초)의 정답 전사문을 표준 표기로 정규화한 뒤 측정한 예비 평가입니다.</p>
+      <div class="metrics">
+        <div class="metric"><b>25.45%</b><span>WER · 어절 (정규화 전 31.43%)</span></div>
+        <div class="metric"><b>12.88%</b><span>CER · 음절</span></div>
+        <div class="metric"><b>21.82%</b><span>sWER · 띄어쓰기 정규화</span></div>
+      </div>
+      <div class="two-col">
+        <div class="card">
+          <h3 class="card-title">확인된 한계</h3>
+          <ul class="plain">
+            <li><b>인명 오인식이 담당자 필드로 전파</b> — 남은 오류는 대부분 인명·유사 발음 어휘의 치환.</li>
+            <li><b>맞장구가 많은 대화에서 화자 병합</b> — 짧은 "네"가 반복되면 두 화자가 하나로 합쳐짐.</li>
+            <li>평가 표본이 작고, 업무 추출 정확도는 정량 평가하지 않음.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="card-title">대응</h3>
+          <ul class="plain">
+            <li>담당자를 화자 ID가 아니라 <b>발화 속 이름·호칭</b>에서 뽑도록 프롬프트 설계 → 화자분리가 실패해도 담당자는 유지.</li>
+            <li>"회의 내용에 없는 정보는 지어내지 마", 담당자·기한이 없으면 <code>null</code> → 환각 억제.</li>
+            <li>정규화 전/후 WER을 함께 보고해 정답 전사문의 표기 차이와 실제 오류를 분리.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 트러블슈팅 -->
+    <section class="wrap section">
+      <h2 class="section-title">트러블슈팅 · 보수 기록</h2>
+      <div class="issues">
+        <article class="card issue">
+          <h3>API 경로에서 Trello 카드가 항상 0개</h3>
+          <p><b>원인</b> 업무 추출 함수가 이미 <code>list</code>를 반환하는데 라우터에서 다시 <code>json.loads()</code>를 호출 → <code>TypeError</code>가 bare <code>except</code>에 묻혀 빈 리스트로 처리.</p>
+          <p><b>해결</b> 이중 파싱 제거, 파싱 책임을 서비스 한 곳으로 모으고 <code>send_to_trello</code> 옵션 추가.</p>
+        </article>
+        <article class="card issue">
+          <h3>LLM 응답이 JSON이 아닐 때 업무 유실</h3>
+          <p><b>원인</b> 모델이 <code>```json</code> 코드블록이나 설명 문장을 붙이면 <code>json.loads</code> 실패.</p>
+          <p><b>해결</b> 코드블록 제거 → 첫 <code>[</code>~마지막 <code>]</code> 재시도 → dict 항목만 채택. 단위 테스트 5종.</p>
+        </article>
+        <article class="card issue">
+          <h3>요청마다 화자분리 모델 재로딩</h3>
+          <p><b>원인</b> 정렬·화자분리 파이프라인을 함수 안에서 매번 생성.</p>
+          <p><b>해결</b> 언어별 정렬 모델과 화자분리 모델을 지연 로딩 후 캐시.</p>
+        </article>
+        <article class="card issue">
+          <h3>업로드 파일명 경로 조작 · 개인 음성 노출</h3>
+          <p><b>원인</b> 클라이언트 파일명을 그대로 저장 경로로 사용, 테스트 녹음이 저장소에 커밋됨.</p>
+          <p><b>해결</b> 확장자 화이트리스트 + UUID 파일명, 음성·정답 전사문을 <code>.gitignore</code> 처리하고 시연은 가상 대본만 사용.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 발전 과정 -->
+    <section id="history" class="wrap section">
+      <h2 class="section-title">발전 과정</h2>
+      <ol class="history">
+        <li>
+          <span class="when">2026.03</span>
+          <div><b>v1 · Spring Boot + Whisper</b>
+            <p>Spring 메인 서버가 FastAPI(Whisper) 서버를 호출해 mp3를 전사하고 Mustache로 결과 표시. 서버 간 연동을 익힘.</p>
+            <a href="https://github.com/Kitbomin/grad-proj" target="_blank" rel="noopener">grad-proj ↗</a></div>
+        </li>
+        <li>
+          <span class="when">2026.04</span>
+          <div><b>v2 · 업무 도메인 모델링</b>
+            <p>JPA로 Task 엔티티·상태(Status)와 WebClient 기반 AI 호출을 설계. 칸반을 직접 구현하려던 단계.</p>
+            <a href="https://github.com/Kitbomin/graduation-project-with-whisper" target="_blank" rel="noopener">graduation-project-with-whisper ↗</a></div>
+        </li>
+        <li>
+          <span class="when">2026.05</span>
+          <div><b>v3 · FastAPI 단일화 + Trello 위임</b>
+            <p>칸반 UI를 직접 만들지 않고 Trello에 맡기기로 결정, Python 서버 하나로 화자분리·업무 추출·Trello 연동을 통합.</p>
+            <a href="https://github.com/Kitbomin/kanban-graduation-proj" target="_blank" rel="noopener">kanban-graduation-proj ↗</a></div>
+        </li>
+        <li class="now">
+          <span class="when">2026.05 – 11</span>
+          <div><b>v4 · WhisperX + 로컬 LLM, 논문화</b>
+            <p>WhisperX 정렬·pyannote 화자분리·Ollama 로컬 LLM으로 전 과정을 로컬화하고, WER/CER/sWER 평가로 졸업논문 작성.</p>
+            <a href="https://github.com/Kitbomin/meeting-ai-service-proj" target="_blank" rel="noopener">meeting-ai-service-proj ↗</a></div>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>© <span id="year"></span> 김보민 · Kim BoMin</span>
+      <span class="footer-links"><a href="../../">← 포트폴리오 홈</a></span>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/theme.js"></script>
+  <script src="demo.js"></script>
+</body>
+</html>

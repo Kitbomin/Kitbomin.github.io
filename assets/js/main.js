@@ -28,17 +28,6 @@
     return '<a class="btn small ' + (cls || '') + '" href="' + esc(href) + '" target="_blank" rel="noopener">' + esc(label) + '</a>';
   };
 
-  // 테마 토글
-  $('themeBtn').addEventListener('click', function () {
-    var root = document.documentElement;
-    var dark = root.dataset.theme
-      ? root.dataset.theme === 'dark'
-      : window.matchMedia('(prefers-color-scheme: dark)').matches;
-    root.dataset.theme = dark ? 'light' : 'dark';
-    try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
-  });
-  $('year').textContent = new Date().getFullYear();
-
   function renderSite(s) {
     document.querySelectorAll('[data-bind]').forEach(function (el) {
       el.textContent = s[el.dataset.bind] || '';

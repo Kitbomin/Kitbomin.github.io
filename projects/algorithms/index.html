@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>알고리즘 시각화 | 김보민</title>
+  <meta name="description" content="정렬 6종, 이진 탐색 트리, 동적 계획법을 브라우저에서 단계별로 실행해 보는 알고리즘 시각화. Processing 과제를 p5.js로 포팅.">
+  <meta property="og:title" content="알고리즘 시각화 | 김보민">
+  <meta property="og:description" content="정렬 · 이진 탐색 트리 · 동적 계획법을 단계별로 실행해 보세요.">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/project.css">
+  <link rel="stylesheet" href="algorithms.css">
+  <script>
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a href="../../" class="logo">kitbomin<span>.dev</span></a>
+      <nav class="nav-links" aria-label="페이지 메뉴">
+        <a href="../../#projects">Projects</a>
+        <button class="theme-btn" type="button" aria-label="다크 모드 전환" id="themeBtn">◐</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap p-hero">
+      <a class="back" href="../../#projects">← 전체 프로젝트</a>
+      <span class="label">개인 · 알고리즘 수업</span>
+      <h1>알고리즘 시각화</h1>
+      <p class="tagline">알고리즘 수업에서 Processing으로 만든 시각화 과제를 p5.js로 옮겨, 브라우저에서 바로 단계별로 실행해 볼 수 있게 했습니다.</p>
+      <div class="chips">
+        <span class="chip">p5.js</span><span class="chip">Processing</span><span class="chip">정렬</span><span class="chip">이진 탐색 트리</span><span class="chip">동적 계획법</span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn primary" href="https://github.com/Kitbomin/Algorithm2026" target="_blank" rel="noopener">GitHub 저장소</a>
+      </div>
+    </section>
+
+    <section class="wrap section algo">
+      <div class="tabs" role="tablist">
+        <button role="tab" class="tab" data-tab="sort" aria-selected="true">정렬</button>
+        <button role="tab" class="tab" data-tab="bst" aria-selected="false">이진 탐색 트리</button>
+        <button role="tab" class="tab" data-tab="dp" aria-selected="false">동적 계획법</button>
+      </div>
+
+      <!-- 정렬 -->
+      <div class="panel" id="panel-sort" role="tabpanel">
+        <div class="seg-ctl" id="algoBtns"></div>
+        <div class="card stage">
+          <div class="stage-head">
+            <b id="sortTitle"></b>
+            <span class="meta" id="sortStats"></span>
+          </div>
+          <div id="sortCanvas" class="canvas-box"></div>
+          <p class="step-msg" id="sortMsg"></p>
+          <input type="range" id="sortScrub" min="0" max="0" value="0" aria-label="단계 이동">
+          <div class="controls">
+            <button class="btn small" id="sPrev" aria-label="이전 단계">◀</button>
+            <button class="btn small primary" id="sPlay">▶ 재생</button>
+            <button class="btn small" id="sNext" aria-label="다음 단계">▶</button>
+            <button class="btn small" id="sShuffle">🔀 새 배열</button>
+            <label class="ctl">속도 <input type="range" id="sSpeed" min="1" max="10" value="6"></label>
+            <label class="ctl">크기 <input type="range" id="sSize" min="8" max="48" value="16" step="4"><span id="sSizeVal">16</span></label>
+          </div>
+          <div class="legend-row">
+            <span><i class="lg cmp"></i>비교</span><span><i class="lg swp"></i>교환·쓰기</span>
+            <span><i class="lg piv"></i>피벗</span><span><i class="lg done"></i>확정</span>
+            <span class="keys">단축키: space 재생 · ←/→ 단계 · z/x 알고리즘 · a/s 속도</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- BST -->
+      <div class="panel" id="panel-bst" role="tabpanel" hidden>
+        <div class="card stage">
+          <div class="stage-head">
+            <b>Binary Search Tree</b>
+            <span class="meta" id="bstInfo"></span>
+          </div>
+          <div id="bstCanvas" class="canvas-box"></div>
+          <p class="step-msg" id="bstMsg">빈 곳을 누르면 그 위치 값(0–99)이 삽입되고, 노드를 누르면 삭제됩니다.</p>
+          <div class="controls">
+            <input class="num" type="number" id="bstVal" min="0" max="99" placeholder="0–99" aria-label="값">
+            <button class="btn small primary" id="bstIns">삽입</button>
+            <button class="btn small" id="bstDel">삭제</button>
+            <button class="btn small" id="bstFind">탐색</button>
+            <span class="sep"></span>
+            <button class="btn small" data-trav="in">중위 순회</button>
+            <button class="btn small" data-trav="pre">전위 순회</button>
+            <button class="btn small" data-trav="post">후위 순회</button>
+            <span class="sep"></span>
+            <button class="btn small" id="bstNew">새 트리</button>
+            <button class="btn small" id="bstClear">비우기</button>
+          </div>
+          <p class="trav-out" id="travOut"></p>
+        </div>
+      </div>
+
+      <!-- DP -->
+      <div class="panel" id="panel-dp" role="tabpanel" hidden>
+        <div class="dp-grid">
+          <div class="card stage">
+            <div class="stage-head"><b>조약돌 놓기 (Pebble Sum)</b><span class="meta" id="pebInfo"></span></div>
+            <p class="muted small-p">3×n 표에 조약돌을 놓되 가로·세로로 인접하면 안 됩니다. 열마다 4가지 패턴(위 · 가운데 · 아래 · 위+아래) 중 하나를 고르고,
+              <code>peb[i][p] = w(i,p) + max<sub>q 양립</sub> peb[i-1][q]</code> 로 최대 합을 구합니다.</p>
+            <div class="table-scroll"><table class="grid-t" id="pebW"></table></div>
+            <div class="table-scroll"><table class="grid-t dp" id="pebT"></table></div>
+            <p class="step-msg" id="pebMsg"></p>
+            <div class="controls">
+              <button class="btn small" id="pPrev">◀</button>
+              <button class="btn small primary" id="pPlay">▶ 재생</button>
+              <button class="btn small" id="pNext">▶</button>
+              <button class="btn small" id="pNew">🔀 새 표</button>
+            </div>
+          </div>
+          <div class="card stage">
+            <div class="stage-head"><b>행렬 경로 최소합</b><span class="meta" id="matInfo"></span></div>
+            <p class="muted small-p">왼쪽 위에서 오른쪽 아래까지 오른쪽·아래로만 이동할 때 지나는 값의 최소합.
+              <code>c[i][j] = m[i][j] + min(c[i-1][j], c[i][j-1])</code></p>
+            <div class="table-scroll"><table class="grid-t mat" id="matT"></table></div>
+            <p class="step-msg" id="matMsg"></p>
+            <div class="controls">
+              <button class="btn small" id="mPrev">◀</button>
+              <button class="btn small primary" id="mPlay">▶ 재생</button>
+              <button class="btn small" id="mNext">▶</button>
+              <button class="btn small" id="mNew">🔀 새 행렬</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section">
+      <h2 class="section-title">포팅하면서 고친 것</h2>
+      <div class="issues">
+        <article class="card issue">
+          <h3>heap_sort.pde가 실제로는 선택 정렬</h3>
+          <p><b>원인</b> 파일 이름과 달리 <code>selectionSorting()</code>만 구현되어 있었음.</p>
+          <p><b>해결</b> 최대 힙 구성 → 루트 추출 → sift-down 방식의 힙 정렬을 새로 구현.</p>
+        </article>
+        <article class="card issue">
+          <h3>퀵 정렬 선택 불가 · 병합 과정이 안 보임</h3>
+          <p><b>원인</b> SortAnimation에서 퀵 정렬이 주석 처리, 병합 정렬은 분할 시점에만 상태를 저장해 병합 단계가 생략.</p>
+          <p><b>해결</b> 모든 비교·쓰기 시점을 프레임으로 기록하고 비교/교환 횟수를 누적 표시.</p>
+        </article>
+        <article class="card issue">
+          <h3>BST 전위·후위 순회 미구현</h3>
+          <p><b>원인</b> <code>printTree()</code>의 preorder / postorder 분기가 비어 있었음.</p>
+          <p><b>해결</b> 세 가지 순회를 모두 구현하고 방문 순서를 노드 위에 번호로 애니메이션.</p>
+        </article>
+        <article class="card issue">
+          <h3>DP 예제의 정의·복잡도</h3>
+          <p><b>원인</b> 조약돌 패턴에 '위+아래'가 빠져 있었고, 행렬 경로는 메모 없는 재귀라 O(2<sup>n</sup>).</p>
+          <p><b>해결</b> 교재 정의의 4패턴으로 수정, 행렬 경로는 표를 채우는 O(n²) 상향식 DP + 경로 역추적.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>© <span id="year"></span> 김보민 · Kim BoMin</span>
+      <span class="footer-links"><a href="../../">← 포트폴리오 홈</a></span>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+  <script src="../../assets/js/theme.js"></script>
+  <script src="sorting.js"></script>
+  <script src="bst.js"></script>
+  <script src="dp.js"></script>
+  <script>
+    // 탭 전환
+    document.querySelectorAll('.tab').forEach(function (t) {
+      t.addEventListener('click', function () {
+        document.querySelectorAll('.tab').forEach(function (x) { x.setAttribute('aria-selected', x === t); });
+        document.querySelectorAll('.panel').forEach(function (p) { p.hidden = p.id !== 'panel-' + t.dataset.tab; });
+        window.dispatchEvent(new Event('resize')); // 숨겨졌던 캔버스 크기 재계산
+        try { history.replaceState(null, '', '#' + t.dataset.tab); } catch (e) {}
+      });
+    });
+    var h = location.hash.slice(1);
+    var tab = document.querySelector('.tab[data-tab="' + h + '"]');
+    if (tab) tab.click();
+  </script>
+</body>
+</html>

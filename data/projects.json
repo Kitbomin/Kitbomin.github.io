@@ -13,20 +13,20 @@
       "Spring + Whisper 초기 버전에서 3번의 구조 개편"
     ],
     "repo": "https://github.com/Kitbomin/meeting-ai-service-proj",
-    "page": null,
-    "image": null
+    "page": "projects/meeting-ai/",
+    "image": "assets/img/meeting-ai.jpg"
   },
   {
     "slug": "algorithm-viz",
-    "title": "정렬 알고리즘 시각화",
-    "summary": "선택·버블·삽입·병합·퀵·힙 정렬과 B-Tree, 동적 계획법을 Processing으로 시각화한 알고리즘 아카이브.",
+    "title": "알고리즘 시각화",
+    "summary": "정렬 6종 · 이진 탐색 트리 · 동적 계획법을 브라우저에서 단계별로 실행해 보는 시각화. Processing 과제를 p5.js로 포팅하며 미구현·오류 부분을 보수.",
     "period": "2026",
-    "type": "개인 · 학습",
+    "type": "개인 · 알고리즘 수업",
     "featured": false,
-    "tags": ["Processing", "Algorithm", "Visualization"],
+    "tags": ["p5.js", "Processing", "Algorithm", "Visualization"],
     "highlights": [],
     "repo": "https://github.com/Kitbomin/Algorithm2026",
-    "page": null,
-    "image": null
+    "page": "projects/algorithms/",
+    "image": "assets/img/algorithms.jpg"
   }
 ]
