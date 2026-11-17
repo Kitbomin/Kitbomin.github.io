@@ -1,0 +1,240 @@
+:root {
+  --bg: #fff8ef;
+  --bg-accent: #f3e4d3;
+  --primary: #6e4b3a;
+  --text: #2e1c13;
+  --muted: #a68877;
+  --sidebar-width: 230px;
+}
+
+/* 기본 구조 */
+body {
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #fffaf3;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* 사이드바 토글용 체크박스 */
+#menu-toggle {
+  display: none;
+}
+
+/* 사이드바 */
+.sidebar {
+  width: 240px;
+  background-color: #6b4b33;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex-shrink: 0;
+  transition: width 0.4s ease;
+  overflow: hidden;
+}
+
+/* 햄버거 버튼 */
+.hbg {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 30px;
+  padding-right: 50px;
+  position: relative;
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  color: #fff8e8;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#menu-toggle:checked + .sidebar .menu-btn {
+  transform: rotate(90deg); /* 햄버거 회전 효과 */
+}
+
+/* 로고 영역 */
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 20px 0;
+  transition: all 0.3s ease;
+}
+
+.logo img {
+  width: 60px;
+  height: 60px;
+  transition: all 0.3s ease;
+}
+
+.logo h4 {
+  color: #fff8e8;
+  font-weight: 600;
+  font-size: 14px;
+  transition: opacity 0.3s ease;
+}
+
+/* 메뉴 */
+.menu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.menu a {
+  color: #fff8e8;
+  text-decoration: none;
+  padding: 12px 20px;
+  transition: background 0.3s ease, padding-left 0.2s ease, opacity 0.3s ease;
+}
+
+.menu a:hover {
+  background: #a7886e;
+  padding-left: 28px;
+}
+
+/* 기타 영역 */
+.etc {
+  margin-top: auto;
+  width: 100%;
+  background: #f7eed3;
+  text-align: center;
+  padding: 20px 0;
+  transition: opacity 0.3s ease;
+}
+
+.etc button,
+.logout-btn {
+  display: block;
+  width: 80%;
+  margin: 8px auto;
+  background: none;
+  border: none;
+  color: #674636;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.logout-btn:hover,
+.etc button:hover {
+  text-decoration: underline;
+}
+
+/* 메인 영역 */
+.main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #fffdf7;
+  overflow-y: auto;
+  transition: all 0.3s ease;
+}
+
+/* 체크 시 사이드바 토글 효과 */
+#menu-toggle:checked ~ .sidebar {
+  width: 60px;
+}
+
+#menu-toggle:checked ~ .sidebar .logo h4,
+#menu-toggle:checked ~ .sidebar .menu a,
+#menu-toggle:checked ~ .sidebar .etc button,
+#menu-toggle:checked ~ .sidebar .etc .logout-btn {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#menu-toggle:checked ~ .sidebar .logo img {
+  width: 40px;
+  height: 40px;
+}
+
+#menu-toggle:checked ~ .sidebar + .main-area {
+  margin-left: 0; 
+}
+
+/* 헤더 */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  border-bottom: 1px solid #ddd;
+  background: #fffdf7;
+  position: sticky;
+  top: 0;
+}
+
+header h1 {
+  font-size: 20px;
+  color: #674636;
+}
+
+header input {
+  border: 1px solid #aab396;
+  border-radius: 8px;
+  padding: 6px 10px;
+  width: 220px;
+  font-size: 14px;
+}
+
+/* 콘텐츠 */
+.content {
+  padding: 30px 40px;
+}
+
+/* 댓글 카드 */
+.comment-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  width: 400px;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #888;
+}
+
+.comment-header .status {
+  color: #18891e;
+  font-weight: 600;
+}
+
+.comment-card .title {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.comment-body {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: #f7eed3;
+  border-radius: 12px;
+  padding: 5px 10px;
+  font-size: 12px;
+  color: #674636;
+}

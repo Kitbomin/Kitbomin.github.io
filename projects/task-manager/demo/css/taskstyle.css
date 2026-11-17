@@ -1,0 +1,487 @@
+/* ! 중요도 */
+.todo, .status{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-size: small;
+  
+}
+.todo-group{
+  background-color: white;
+}
+
+
+.todo li,.status li{
+  border: 2px solid rgba(255,255,255,0.08);
+  border-radius: 5px;
+  padding: 3px 6px;
+}
+.todo-low{
+  background-color: rgba(44, 228, 84, 0.521);
+}
+.todo-medium{
+  background-color: #facc15;
+}
+.todo-high{
+  background-color: red;
+}
+
+/* ! 진행도 */
+.status-todo{
+  background-color: white;
+}
+.status-inprogress{
+  background-color: white;
+}
+.status-done{
+  background-color: white;
+}
+.status-todo:active{
+  background-color: #9ca3af;
+}
+/* .status-todo:inprogress{
+  background-color: #3b82f6;
+} */
+
+
+
+
+#pjtag{
+
+
+}
+
+#tasktag{
+
+}
+
+details.dropdown{
+  position:relative;
+  display: inline-block;
+}
+summary {
+  list-style: none;
+  cursor:pointer;
+  padding: 0;
+  margin: 0;
+}
+summary::-webkit-details-marker { display: none; }
+
+#status {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  background-color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+#status span {
+  display: block;
+  width: 4px;
+  height: 4px;
+  background-color: gray;
+  border-radius: 50%;
+}
+#status:hover {
+  background-color: rgba(250,250,250,0.8);
+}
+
+/* 메뉴: 기본 숨김 */
+.taskmenu {
+  display: none;
+  position: absolute;
+  top: 14px; /* 버튼 바로 아래 */
+  right: -10;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 4px 0;
+  list-style: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15); 
+  min-width: 100px;
+  font-size: 14px;
+}
+
+details[open] .taskmenu {
+  display: block;
+}
+
+/* 메뉴 항목 스타일 */
+.taskmenu li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.taskmenu li:hover {
+  background: #f3f4f6;
+}
+
+/* (선택) 열렸을 때 버튼 스타일 변경 */
+details[open] #status {
+  background-color: #f8fafc;
+}
+
+.task-card {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: var(--outline);
+}
+
+.task-header .status {
+  color: green;
+}
+
+.task-body {
+  margin-top: 10px;
+}
+
+/* 댓글 태그 */
+.task-body .tag {
+  background: #eee;
+  border-radius: 15px;
+  padding: 3px 8px;
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+  display: inline-block;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  outline: none;
+}
+
+/* 태그 hover/focus */
+.task-body .tag:hover,
+.task-body .tag:focus {
+  background-color: var(--team-bg-muted);
+  color: var(--team-primary);
+  outline: none;
+  box-shadow: 0 0 0 2px #67463633; 
+}
+
+.tag-list-body {
+  background: #eee;
+  border-radius: 15px;
+  padding: 3px 8px;
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+  display: inline-block;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  outline: none;
+}
+
+/* 태그 hover/focus */
+.task-body .tag:hover,
+.task-body .tag:focus {
+  background-color: var(--team-bg-muted);
+  color: var(--team-primary);
+  outline: none;
+  box-shadow: 0 0 0 2px #67463633; 
+}
+/* 콘텐츠 */
+.comment {
+  padding: 20px 30px;
+  flex: 1;
+  overflow-y: auto;
+  box-sizing: border-box;
+  color: #333;
+}
+
+
+
+
+/* 검색영역 전체 */
+.search-area {
+  display: flex;
+  flex-direction: row;
+  gap: 10px; /* 두 검색박스 간격 */
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 600px; /* 카드와 맞추려면 같은 폭을 지정 */
+}
+
+/* 각 검색박스 */
+.search-box {
+  display: flex;
+  flex: 1;               /* 두 개가 동일한 너비 */
+  gap: 5px;
+}
+
+/* input과 button 크기 줄이기 */
+.search-box input {
+  flex: 1;
+  padding: 6px 8px;
+  font-size: 14px;
+}
+
+.search-box button {
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+/* 카드와 같은 폭으로 맞추기 */
+.comment-card,
+.comment-create-card,
+.comment-update-card,
+.search-area {
+  width: 100%;
+  max-width: 600px; /* 원하는 카드 폭 */
+  box-sizing: border-box;
+}
+
+/* 댓글 카드 */
+.comment-card {
+  background: white;
+  width: 90%;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.comment-header {
+  display: flex;
+  justify-comment: space-between;
+  font-size: 0.9rem;
+  color: gray;
+}
+
+
+.comment-body {
+  display: flex;
+  margin-top: 10px;
+}
+
+
+.comment-create-card {
+  background: white;
+  width: 90%;
+  height: 10%;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.comment-update-card {
+  background: white;
+  width: 90%;
+  height: 10%;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+#create {
+  width: 90%;
+  min-height: 40px;
+  border: 1px solid var(--team-accent);
+  border-radius: 10px;
+  box-sizing: border-box;
+  resize: none;
+  overflow: hidden; /* 스크롤 제거 */
+  line-height: 1.4;
+}
+
+.comment-create-card .comment-header{
+  display: flex;
+  flex-direction: row;
+  justify-comment: space-between;
+  font-size: 0.9rem;
+  align-comment: center;
+}
+
+.content {
+  padding: 20px 30px;
+  flex: 1;
+  overflow-y: auto;
+  box-sizing: border-box;
+  color: #333;
+}
+
+/* taskcreate - card */
+.notification-card {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+#create{
+  width: 100%;;
+}
+
+.content .task-title-card {
+  background: white;
+  padding: 10px 10px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  color: #333;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+
+.content .task-content-card {
+  background: white;
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.content .task-select-card {
+  background: white;
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.settag{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  font-size: small;
+}
+
+
+
+.priority-group {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+  width: 45%
+}
+
+.priority-group input[type="radio"] {
+  display: none; /* 라디오 기본 버튼 숨기기 */
+}
+
+.priority-group label {
+  padding: 8px 20px;
+  cursor: pointer;
+  text-align: center;
+  flex: 1; /* 같은 크기로 나누기 */
+  border-right: 1px solid #ccc;
+  width: 4rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.priority-group label:last-child {
+  border-right: none; /* 마지막 경계선 제거 */
+}
+
+#low:checked + label {
+      background-color: rgba(44,228,84,0.521); 
+      color: white;
+    }
+#medium:checked + label {
+      background-color: #facc15; 
+      color: white;
+    }
+#high:checked + label {
+      background-color: red; 
+      color: white;
+    }
+
+
+/* TODO 관련 */
+.todo-group {
+  display: flex;
+  justify-content: right;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+  width: 50%;
+}
+
+.todo-group input[type="radio"] {
+  display: none; /* 라디오 기본 버튼 숨기기 */
+}
+
+.todo-group label {
+  padding: 8px 14px;
+  cursor: pointer;
+  align-content: right;
+  text-align: center;
+  flex: 2 ; 
+  border-right: 1px solid #ccc;
+  width: 8rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.todo-group label:last-child {
+  border-right: none; /* 마지막 경계선 제거 */
+}
+
+#todo:checked + label {
+      background-color: #9ca3af; 
+      color: white;
+    }
+#inprogress:checked + label {
+      background-color: #3b82f6; 
+      color: white;
+    }
+#done:checked + label {
+      background-color: #22c55e; 
+      color: white;
+    }
+
+.content .task-time-card {
+  background: white;
+  padding: 5px;
+  margin-bottom: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+
+
+input[type="date"] {
+  position: relative;
+  color: transparent; /* 입력 텍스트 안보이게 */
+  width: 20%;
+}
+
+input[type="date"]::before {
+  content: attr(placeholder);
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #c3c3c3;
+  pointer-events: none;
+}
+
+input[type="date"]:valid::before {
+  content: "";
+}
+
+.content .task-selecttag-card {
+  background: white;
+  padding: 5px;
+  margin-bottom: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+

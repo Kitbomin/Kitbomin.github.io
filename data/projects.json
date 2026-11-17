@@ -17,6 +17,32 @@
     "image": "assets/img/meeting-ai.jpg"
   },
   {
+    "slug": "devshop",
+    "title": "DevShop — 개발자 용품 쇼핑몰",
+    "summary": "사용자·판매자·관리자 역할별 쇼핑몰. Toss 결제, 카카오 로그인, WebSocket 1:1 상담. 사용자·판매자 도메인과 화면을 맡았고, 종료 후 직접 실행·점검하며 버그 3건을 보수.",
+    "period": "2025.12 – 2026.01",
+    "type": "팀 프로젝트 · 4인",
+    "featured": false,
+    "tags": ["Spring Boot", "JPA", "Mustache", "MySQL", "Toss Payments"],
+    "highlights": [],
+    "repo": "https://github.com/team-NotFoundException/devshop-proj",
+    "page": "projects/devshop/",
+    "image": "assets/img/devshop.jpg"
+  },
+  {
+    "slug": "task-manager",
+    "title": "태스크 매니저 — 역할 기반 협업 도구",
+    "summary": "ADMIN·MANAGER·USER 권한별 프로젝트·태스크 관리 REST API(JWT). 알림·댓글 도메인을 전담했고, 종료 후 API 스모크 테스트로 권한 규칙 순서·시간대 버그 등 8건을 보수.",
+    "period": "2025.09 – 2025.10",
+    "type": "팀 프로젝트 · 5인",
+    "featured": false,
+    "tags": ["Spring Boot", "Spring Security", "JWT", "JPA"],
+    "highlights": [],
+    "repo": "https://github.com/team-NotFoundException/mini-project-task-manager",
+    "page": "projects/task-manager/",
+    "image": "assets/img/task-manager.jpg"
+  },
+  {
     "slug": "algorithm-viz",
     "title": "알고리즘 시각화",
     "summary": "정렬 6종 · 이진 탐색 트리 · 동적 계획법을 브라우저에서 단계별로 실행해 보는 시각화. Processing 과제를 p5.js로 포팅하며 미구현·오류 부분을 보수.",
@@ -28,5 +54,31 @@
     "repo": "https://github.com/Kitbomin/Algorithm2026",
     "page": "projects/algorithms/",
     "image": "assets/img/algorithms.jpg"
+  },
+  {
+    "slug": "pet-shelter",
+    "title": "유기동물 보호소 · 입양 관리",
+    "summary": "보호소·보호 동물·입양 신청을 관리하는 웹 서비스. Spring Boot API와 React(TypeScript) 프론트를 분리한 팀 미니 프로젝트에서 보호소·동물 도메인 백엔드를 맡음 (팀 내 커밋 1위).",
+    "period": "2025.11",
+    "type": "팀 프로젝트 · 5인",
+    "featured": false,
+    "tags": ["Spring Boot", "JPA", "React", "TypeScript", "Zustand"],
+    "highlights": [],
+    "repo": "https://github.com/team-NotFoundException/mini-proj-Pet-Adoption-Shelter-system",
+    "page": null,
+    "image": null
+  },
+  {
+    "slug": "artist-space",
+    "title": "ArtistSpace — 창작 교류 커뮤니티",
+    "summary": "글·그림·공예·작곡을 나누는 창작자 커뮤니티. Spring Boot + React 19로 프론트-백 연결, 엔티티 설계, 회원가입·로그인과 세션 인터셉터까지 구현한 개인 프로젝트 (개발 중).",
+    "period": "2026.02 –",
+    "type": "개인 · 개발 중",
+    "featured": false,
+    "tags": ["Spring Boot", "React 19", "Vite"],
+    "highlights": [],
+    "repo": "https://github.com/Kitbomin/ArtistSpace-Proj",
+    "page": null,
+    "image": null
   }
 ]

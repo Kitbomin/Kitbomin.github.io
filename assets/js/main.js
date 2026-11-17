@@ -120,6 +120,23 @@
     }).join('');
   }
 
+  function renderLearning(l) {
+    if (!l || !l.items || !l.items.length) return;
+    $('learning').hidden = false;
+    $('learningTitle').textContent = l.title || '학습 기록';
+    $('learningIntro').textContent = l.intro || '';
+    var max = Math.max.apply(null, l.items.map(function (i) { return i.commits || 0; }));
+    $('learningList').innerHTML = l.items.map(function (i) {
+      var w = max ? Math.max(4, Math.round((i.commits || 0) / max * 100)) : 0;
+      return '<li><span class="t-when">' + esc(i.period) + '</span>' +
+        '<a class="t-body" href="' + esc(i.repo) + '" target="_blank" rel="noopener">' +
+        '<b>' + esc(i.title) + '</b><span class="muted">' + esc(i.desc) + '</span>' +
+        '<span class="t-commits"><i style="width:' + w + '%"></i><em>' + esc(i.commits) + ' commits</em></span>' +
+        '</a></li>';
+    }).join('');
+    if (l.more) $('learningMore').textContent = l.more.label + ': ' + l.more.text;
+  }
+
   function renderPosts(posts) {
     if (!posts || !posts.length) return; // 글이 없으면 섹션 숨김 유지
     $('blog').hidden = false;
@@ -135,6 +152,7 @@
     .then(function (r) { renderSite(r[0]); renderProjects(r[1]); })
     .catch(function (e) { console.error(e); });
   getJSON('data/posts.json').then(renderPosts).catch(function () {});
+  getJSON('data/learning.json').then(renderLearning).catch(function () {});
 
   // 블로그 섹션이 숨겨져 있으면 메뉴 링크도 숨김
   var blogLink = document.querySelector('[data-section-link="blog"]');

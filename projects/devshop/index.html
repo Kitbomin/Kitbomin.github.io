@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevShop 쇼핑몰 | 김보민</title>
+  <meta name="description" content="개발자 용품 쇼핑몰 DevShop — Spring Boot · JPA · Mustache, Toss 결제, 카카오 로그인, WebSocket 1:1 상담. 4인 팀 프로젝트에서 사용자·판매자 도메인과 화면 담당.">
+  <meta property="og:title" content="DevShop 개발자 용품 쇼핑몰 | 김보민">
+  <meta property="og:description" content="Spring Boot 기반 역할별(사용자·판매자·관리자) 쇼핑몰 팀 프로젝트">
+  <meta property="og:image" content="https://kitbomin.github.io/assets/img/devshop.jpg">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/project.css">
+  <script>
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a href="../../" class="logo">kitbomin<span>.dev</span></a>
+      <nav class="nav-links" aria-label="페이지 메뉴">
+        <a href="#screens">화면</a>
+        <a href="#role">역할</a>
+        <a href="#architecture">구조</a>
+        <a href="#maintenance">보수</a>
+        <button class="theme-btn" type="button" aria-label="다크 모드 전환" id="themeBtn">◐</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap p-hero">
+      <a class="back" href="../../#projects">← 전체 프로젝트</a>
+      <span class="label">팀 프로젝트 · 4인</span>
+      <h1>DevShop — 개발자 용품 쇼핑몰</h1>
+      <p class="tagline">키보드·마우스·모니터 같은 개발자 용품을 사고파는 쇼핑몰. 사용자 · 판매자 · 관리자 세 역할이 상품 등록부터 주문 · 결제 · 리뷰 · 1:1 상담까지 하나의 서비스 안에서 움직입니다.</p>
+      <dl class="facts">
+        <div><dt>기간</dt><dd>2025.12 – 2026.01</dd></div>
+        <div><dt>형태</dt><dd>학원 팀 프로젝트 (4인)</dd></div>
+        <div><dt>내 기여</dt><dd>커밋 92개 · 팀 내 1위</dd></div>
+      </dl>
+      <div class="chips">
+        <span class="chip">Java 17</span><span class="chip">Spring Boot 3.5</span><span class="chip">Spring Data JPA</span><span class="chip">MySQL · H2</span>
+        <span class="chip">Mustache</span><span class="chip">Toss Payments</span><span class="chip">Kakao OAuth</span><span class="chip">WebSocket · STOMP</span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn primary" href="https://github.com/team-NotFoundException/devshop-proj" target="_blank" rel="noopener">팀 저장소</a>
+      </div>
+    </section>
+
+    <!-- 화면 -->
+    <section id="screens" class="wrap section">
+      <h2 class="section-title">실행 화면</h2>
+      <p class="muted intro">팀 프로젝트 종료 후 로컬(H2)에서 직접 실행해 역할별 계정으로 캡처한 화면입니다. 이미지를 누르면 크게 볼 수 있습니다.</p>
+      <div class="gallery" data-gallery>
+        <div class="g-tabs">
+          <button type="button" data-filter="all">전체</button>
+          <button type="button" data-filter="user">사용자</button>
+          <button type="button" data-filter="owner">판매자</button>
+          <button type="button" data-filter="admin">관리자</button>
+        </div>
+        <div class="g-grid">
+          <figure data-group="user"><img src="img/g_home.jpg" alt="메인 화면" loading="lazy"><figcaption>메인 — 배너 · 최신 등록 상품</figcaption></figure>
+          <figure data-group="user"><img src="img/g_category.jpg" alt="카테고리별 상품" loading="lazy"><figcaption>카테고리별 상품 목록</figcaption></figure>
+          <figure data-group="user"><img src="img/u_detail.jpg" alt="상품 상세" loading="lazy"><figcaption>상품 상세 — 수량 선택 · 장바구니 · 바로구매</figcaption></figure>
+          <figure data-group="user"><img src="img/u_cart.jpg" alt="장바구니" loading="lazy"><figcaption>장바구니 — 선택 상품 합계 · 주문</figcaption></figure>
+          <figure data-group="owner"><img src="img/o_dash.jpg" alt="판매자 대시보드" loading="lazy"><figcaption>판매자 센터 — 운영 현황</figcaption></figure>
+          <figure data-group="owner"><img src="img/o_products.jpg" alt="판매자 상품 관리" loading="lazy"><figcaption>판매자 — 상품 목록 관리 · 검색</figcaption></figure>
+          <figure data-group="admin"><img src="img/a_main.jpg" alt="관리자 대시보드" loading="lazy"><figcaption>관리자 센터 — 대시보드 · 최근 가입 회원</figcaption></figure>
+          <figure data-group="admin"><img src="img/a_owners.jpg" alt="입점사 관리" loading="lazy"><figcaption>관리자 — 입점사 승인 · 정지</figcaption></figure>
+          <figure data-group="admin"><img src="img/a_cats.jpg" alt="카테고리 관리" loading="lazy"><figcaption>관리자 — 대/소분류 카테고리 관리</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 역할 -->
+    <section id="role" class="wrap section">
+      <h2 class="section-title">내가 맡은 부분</h2>
+      <div class="two-col">
+        <div class="card">
+          <h3 class="card-title">담당 기능</h3>
+          <ul class="plain">
+            <li><b>사용자 · 판매자 도메인</b> — User / Owner 엔티티와 컨트롤러, 회원 정보 수정, 판매자 정지(suspension) 처리</li>
+            <li><b>공통 레이아웃과 사용자 화면</b> — 헤더 · 카테고리 내비게이션 · 마이페이지 등 Mustache 템플릿과 CSS (템플릿 변경 커밋 최다)</li>
+            <li><b>리뷰 연동</b> — 상품 상세 페이지 안에 리뷰 목록 삽입, 리뷰 수정 후 리다이렉트 오류 수정</li>
+            <li><b>이메일 인증</b> — 회원가입 시 Google SMTP 인증 코드 발송 · 검증</li>
+            <li><b>판매자 대시보드</b> 버그 수정, 장바구니 상품 삭제 수정</li>
+            <li><b>문서화</b> — README 기능 명세, ERD · 클래스 다이어그램(Mermaid)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="card-title">팀 내 커밋 비중 <span class="count">머지 제외 295개</span></h3>
+          <div class="contrib">
+            <div class="contrib-row me"><span>Kitbomin</span><div class="contrib-bar"><i style="width:31%"></i></div><span>92</span></div>
+            <div class="contrib-row"><span>팀원 A</span><div class="contrib-bar"><i style="width:22%"></i></div><span>66</span></div>
+            <div class="contrib-row"><span>팀원 B</span><div class="contrib-bar"><i style="width:21%"></i></div><span>61</span></div>
+            <div class="contrib-row"><span>팀원 C</span><div class="contrib-bar"><i style="width:15%"></i></div><span>43</span></div>
+            <div class="contrib-row"><span>기타</span><div class="contrib-bar"><i style="width:11%"></i></div><span>33</span></div>
+          </div>
+          <p class="caption">git log 기준. 커밋 수는 작업량의 대략적인 지표일 뿐이며, 결제(Toss) · 채팅(WebSocket) · 관리자 통계는 다른 팀원이 주도했습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 구조 -->
+    <section id="architecture" class="wrap section">
+      <h2 class="section-title">구조와 설계 포인트</h2>
+      <ol class="flow">
+        <li><b>요청</b><span>Mustache SSR 화면<br>Vanilla JS (fetch)</span></li>
+        <li><b>인터셉터</b><span>Login · Owner · Admin<br>권한별 접근 제어</span></li>
+        <li><b>컨트롤러 · 서비스</b><span>도메인별 패키지<br>@Transactional</span></li>
+        <li><b>JPA · DB</b><span>MySQL (운영) · H2 (개발)<br>BaseTimeEntity</span></li>
+        <li class="out"><b>외부 API</b><span>Toss · Kakao · Juso<br>Google SMTP</span></li>
+      </ol>
+      <div class="two-col" style="margin-top:16px">
+        <div class="card">
+          <h3 class="card-title">역할 기반 접근 제어</h3>
+          <p>Spring Security 없이 <b>세션 + 인터셉터 체인</b>으로 USER / OWNER / ADMIN을 분리했습니다. 로그인 → 판매자 → 관리자 인터셉터가 경로 패턴별로 걸리고, 권한이 없으면 안내 후 되돌립니다. 비밀번호는 BCrypt로 해시합니다.</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">결제 게이트웨이 패턴</h3>
+          <p><code>PaymentGateway</code> 인터페이스 뒤에 Toss 결제와 Mock 결제를 두고 <code>PaymentGatewayResolver</code>가 선택합니다. 결제 수단을 추가해도 주문 로직은 바뀌지 않도록 한 구조로, 결제 승인 · 환불 · 재고 차감을 한 트랜잭션에서 처리합니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 보수 -->
+    <section id="maintenance" class="wrap section">
+      <h2 class="section-title">프로젝트 이후 보수</h2>
+      <p class="muted intro">개인 fork에서 Windows 로컬 실행 → 역할별 38개 화면 자동 점검 → 헤드리스 브라우저 확인 순으로 다시 검증하며 고친 내용입니다.</p>
+      <div class="issues">
+        <article class="card issue">
+          <h3>Windows에서 한글 시드 데이터가 전부 깨짐</h3>
+          <p><b>원인</b> <code>data.sql</code>을 OS 기본 인코딩(MS949)으로 읽음. 기본 인코딩이 UTF-8인 환경에서는 드러나지 않던 문제.</p>
+          <p><b>해결</b> <code>spring.sql.init.encoding: UTF-8</code>을 명시해 OS와 무관하게 동작.</p>
+        </article>
+        <article class="card issue">
+          <h3>입점사 상세 조회 500 — NonUniqueResult</h3>
+          <p><b>원인</b> <code>findByOwnerId</code>가 <code>Optional&lt;Product&gt;</code>로 선언돼 상품 2개 이상인 판매자에서 예외. <code>Optional.stream()</code> 덕에 컴파일은 통과해 숨어 있던 버그.</p>
+          <p><b>해결</b> 반환 타입을 <code>List&lt;Product&gt;</code>로 변경.</p>
+        </article>
+        <article class="card issue">
+          <h3>JSON 응답이 중간에 끊김 — 순환 참조</h3>
+          <p><b>원인</b> 응답 DTO가 <code>UserRole</code> 엔티티를 그대로 노출 → <code>UserRole ↔ User</code> 양방향 참조로 직렬화 깊이 1000 초과.</p>
+          <p><b>해결</b> DTO에는 역할 이름 문자열만 담도록 수정 — 엔티티를 API 응답에 직접 쓰지 않는다는 원칙 재확인.</p>
+        </article>
+        <article class="card issue">
+          <h3>점검 과정에서 배운 것</h3>
+          <p>HTML 소스의 <code>alert(</code> 문자열만 보고 오류로 판단했다가, 실제로는 버튼 핸들러 안의 문구였던 오탐이 있었습니다. 헤드리스 브라우저로 <b>실제 발생한 dialog</b>만 수집하도록 점검 도구를 바꿔 해결했습니다.</p>
+        </article>
+      </div>
+      <p class="caption">미구현으로 남은 부분(아이디 찾기, 결제 콜백 주소 하드코딩 등)은 fork의 <code>MAINTENANCE.md</code>에 정리했습니다.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>© <span id="year"></span> 김보민 · Kim BoMin</span>
+      <span class="footer-links"><a href="../../">← 포트폴리오 홈</a></span>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/theme.js"></script>
+  <script src="../../assets/js/gallery.js"></script>
+</body>
+</html>
