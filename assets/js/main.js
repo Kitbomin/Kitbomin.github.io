@@ -89,7 +89,7 @@
   function projectLinks(p) {
     var out = '';
     if (p.page) out += '<a class="btn small primary" href="' + esc(p.page) + '">자세히 보기</a>';
-    if (p.demo) out += ext(p.demo, '데모');
+    if (p.demo) out += '<a class="btn small primary" href="' + esc(p.demo) + '">' + esc(p.demoLabel || '데모') + '</a>';
     if (p.repo) out += ext(p.repo, 'GitHub');
     return out ? '<div class="card-actions">' + out + '</div>' : '';
   }

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="이미지를 ASCII 아트로 바꾸는 웹 도구 — 김보민" />
+  <title>ASCII Art Generator | 김보민</title>
+  <style>
+    :root { color-scheme: dark; --bg: #0b0b0c; --panel: #151517; --line: #2a2a2e; --text: #e8e8ea; --muted: #8b8b93; --accent: #7dd3fc; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 14px/1.5 system-ui, "Malgun Gothic", sans-serif; }
+    a { color: var(--accent); }
+    header { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline; justify-content: space-between; padding: 16px; border-bottom: 1px solid var(--line); }
+    header h1 { margin: 0; font-size: 18px; }
+    header a { font-size: 13px; text-decoration: none; }
+    main { display: grid; gap: 16px; padding: 16px; }
+    @media (min-width: 900px) { main { grid-template-columns: 300px 1fr; align-items: start; } }
+    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px; display: grid; gap: 14px; }
+    .drop { border: 1.5px dashed var(--line); border-radius: 10px; padding: 18px 12px; text-align: center; color: var(--muted); cursor: pointer; transition: border-color .15s; }
+    .drop.over, .drop:hover { border-color: var(--accent); color: var(--text); }
+    .drop img { max-width: 100%; max-height: 140px; display: block; margin: 0 auto 8px; border-radius: 6px; }
+    label { display: grid; gap: 6px; font-size: 13px; color: var(--muted); }
+    label .row { display: flex; justify-content: space-between; }
+    label b { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
+    input[type=range] { width: 100%; accent-color: var(--accent); }
+    select, input[type=text] { width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); background: #0f0f11; color: var(--text); font: inherit; }
+    .checks { display: flex; flex-wrap: wrap; gap: 6px 16px; color: var(--text); }
+    .checks label { display: flex; align-items: center; gap: 6px; color: var(--text); }
+    .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    button { padding: 8px 14px; border-radius: 8px; border: 1px solid var(--line); background: #1d1d21; color: var(--text); font: inherit; cursor: pointer; }
+    button.primary { background: var(--accent); color: #062033; border-color: var(--accent); font-weight: 600; }
+    .meta { font-size: 12px; color: var(--muted); }
+    .stage { background: #000; border: 1px solid var(--line); border-radius: 12px; overflow: auto; max-height: calc(100vh - 120px); padding: 12px; }
+    #ascii { margin: 0; font-family: Consolas, "D2Coding", monospace; white-space: pre; color: #fff; }
+    #ascii span { display: inline; }
+    .hint { color: var(--muted); text-align: center; padding: 40px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ASCII Art Generator</h1>
+    <span><a href="https://github.com/Kitbomin/ascii-art-js" target="_blank" rel="noopener">GitHub</a> · <a href="https://kitbomin.github.io/#projects">← 포트폴리오</a></span>
+  </header>
+
+  <main>
+    <section class="panel" aria-label="설정">
+      <div class="drop" id="drop" tabindex="0" role="button" aria-label="이미지 선택">
+        <img id="preview" alt="" hidden />
+        <div>이미지를 끌어다 놓거나 <u>눌러서 선택</u><br><span class="meta">이미지는 이 브라우저 안에서만 처리되고 어디에도 업로드되지 않습니다</span></div>
+        <input type="file" id="file" accept="image/*" hidden />
+      </div>
+
+      <label><span class="row">가로 글자 수 <b id="colsVal">120</b></span>
+        <input type="range" id="cols" min="40" max="240" step="10" value="120" /></label>
+
+      <label><span class="row">글자 크기 <b id="sizeVal">8px</b></span>
+        <input type="range" id="size" min="4" max="16" value="8" /></label>
+
+      <label>문자 세트 (빽빽한 → 성긴)
+        <select id="charset">
+          <option value="@$#Y!=+~ ">기본 — @$#Y!=+~</option>
+          <option value="@%#*+=-:. ">클래식 — @%#*+=-:.</option>
+          <option value="█▓▒░ ">블록 — █▓▒░</option>
+          <option value="custom">직접 입력…</option>
+        </select>
+      </label>
+      <input type="text" id="custom" placeholder="빽빽한 글자부터 입력 (예: #O+. )" hidden />
+
+      <div class="checks">
+        <label><input type="checkbox" id="invert" /> 밝기 반전 (흰 바탕용)</label>
+        <label><input type="checkbox" id="color" /> 원본 색상</label>
+      </div>
+
+      <div class="actions">
+        <button class="primary" id="copy">텍스트 복사</button>
+        <button id="download">.txt 저장</button>
+      </div>
+      <div class="meta" id="info"></div>
+    </section>
+
+    <section class="stage" aria-label="결과"><pre id="ascii"><span class="hint">이미지를 불러오는 중…</span></pre></section>
+  </main>
+
+  <script>
+    // 원리: 이미지를 캔버스에 축소해 그린 뒤 각 픽셀의 밝기(0.299R + 0.587G + 0.114B)를
+    //       문자 세트의 인덱스로 바꾼다. 글자는 세로로 길쭉하므로 세로 픽셀 수를 줄여 비율을 맞춘다.
+    const $ = (id) => document.getElementById(id);
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d", { willReadFrequently: true });
+    let img = null, lastText = "";
+
+    function charset() {
+      const v = $("charset").value;
+      const s = v === "custom" ? $("custom").value : v;
+      return s.length >= 2 ? s : "@$#Y!=+~ ";
+    }
+
+    function render() {
+      if (!img) return;
+      const cols = +$("cols").value;
+      const size = +$("size").value;
+      const chars = charset();
+      const invert = $("invert").checked;
+      const useColor = $("color").checked;
+      const CHAR_ASPECT = 0.55; // 고정폭 글꼴의 가로/세로 비율
+      const rows = Math.max(1, Math.round(cols * (img.height / img.width) * CHAR_ASPECT));
+
+      canvas.width = cols; canvas.height = rows;
+      ctx.drawImage(img, 0, 0, cols, rows);
+      // 기존 코드는 픽셀마다 getImageData 를 호출했다 → 한 번에 읽어 수십 배 빠르게
+      const data = ctx.getImageData(0, 0, cols, rows).data;
+
+      let text = "", html = "";
+      for (let y = 0; y < rows; y++) {
+        for (let x = 0; x < cols; x++) {
+          const i = (y * cols + x) * 4;
+          const [r, g, b, a] = [data[i], data[i + 1], data[i + 2], data[i + 3]];
+          let gray = (0.299 * r + 0.587 * g + 0.114 * b) * (a / 255) + 255 * (1 - a / 255); // 투명 영역은 밝게
+          // 검은 배경에 밝은 글자로 표시하므로 "밝은 픽셀 = 빽빽한 문자(앞쪽)"가 되도록 뒤집어서 매핑한다.
+          // (기존 코드는 흰 종이 기준 매핑이라 화면에서는 명암이 반대로 보였다) — 흰 바탕에 붙여넣을 땐 '밝기 반전'
+          const level = invert ? gray : 255 - gray;
+          const ch = chars[Math.min(chars.length - 1, Math.floor(level / 256 * chars.length))];
+          text += ch;
+          if (useColor) html += `<span style="color:rgb(${r},${g},${b})">${ch === "<" ? "&lt;" : ch === "&" ? "&amp;" : ch}</span>`;
+        }
+        text += "\n"; if (useColor) html += "\n";
+      }
+
+      const out = $("ascii");
+      out.style.fontSize = size + "px";
+      out.style.lineHeight = size + "px";
+      if (useColor) out.innerHTML = html; else out.textContent = text;
+      lastText = text;
+      $("info").textContent = `${cols} × ${rows} 글자 · 원본 ${img.width} × ${img.height}px`;
+    }
+
+    function load(src) {
+      const im = new Image();
+      im.onload = () => { img = im; $("preview").src = src; $("preview").hidden = false; render(); };
+      im.onerror = () => { $("ascii").innerHTML = '<span class="hint">이미지를 읽지 못했습니다.</span>'; };
+      im.src = src;
+    }
+
+    function fromFile(file) {
+      if (!file || !file.type.startsWith("image/")) return;
+      const reader = new FileReader();
+      reader.onload = () => load(reader.result);
+      reader.readAsDataURL(file);
+    }
+
+    const drop = $("drop");
+    drop.addEventListener("click", () => $("file").click());
+    drop.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); $("file").click(); } });
+    $("file").addEventListener("change", (e) => fromFile(e.target.files[0]));
+    ["dragenter", "dragover"].forEach((t) => drop.addEventListener(t, (e) => { e.preventDefault(); drop.classList.add("over"); }));
+    ["dragleave", "drop"].forEach((t) => drop.addEventListener(t, (e) => { e.preventDefault(); drop.classList.remove("over"); }));
+    drop.addEventListener("drop", (e) => fromFile(e.dataTransfer.files[0]));
+    window.addEventListener("paste", (e) => {
+      const item = [...(e.clipboardData?.items || [])].find((i) => i.type.startsWith("image/"));
+      if (item) fromFile(item.getAsFile());
+    });
+
+    ["cols", "size", "charset", "custom", "invert", "color"].forEach((id) =>
+      $(id).addEventListener("input", () => {
+        $("colsVal").textContent = $("cols").value;
+        $("sizeVal").textContent = $("size").value + "px";
+        $("custom").hidden = $("charset").value !== "custom";
+        render();
+      })
+    );
+
+    $("copy").addEventListener("click", async () => {
+      if (!lastText) return;
+      try { await navigator.clipboard.writeText(lastText); $("copy").textContent = "복사됨 ✓"; }
+      catch { $("copy").textContent = "복사 실패"; }
+      setTimeout(() => ($("copy").textContent = "텍스트 복사"), 1500);
+    });
+    $("download").addEventListener("click", () => {
+      if (!lastText) return;
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(new Blob([lastText], { type: "text/plain" }));
+      a.download = "ascii-art.txt"; a.click();
+      URL.revokeObjectURL(a.href);
+    });
+
+    load("sample.png"); // 기본 예시 이미지 (직접 생성한 음영 구)
+  </script>
+</body>
+</html>

@@ -56,6 +56,36 @@
     "image": "assets/img/algorithms.jpg"
   },
   {
+    "slug": "tetris",
+    "title": "React Tetris",
+    "summary": "React + TypeScript로 만든 테트리스. 블록이 고정되지 않던 문제, 키 입력 폭주, 보이지 않는 두 번째 게임 등 버그 7건을 useReducer 구조로 고쳐 실제로 플레이할 수 있게 만듦. 모바일 터치 지원.",
+    "period": "2025.10 – 11",
+    "type": "개인",
+    "featured": false,
+    "tags": ["React", "TypeScript", "Vite", "useReducer", "Custom Hooks"],
+    "highlights": [],
+    "repo": "https://github.com/Kitbomin/Ara-Tetris-Proj",
+    "page": null,
+    "demo": "projects/tetris/",
+    "demoLabel": "▶ 플레이",
+    "image": "assets/img/tetris.jpg"
+  },
+  {
+    "slug": "ascii-art",
+    "title": "ASCII Art Generator",
+    "summary": "이미지를 ASCII 아트로 바꾸는 브라우저 도구. 픽셀 밝기를 문자 밀도로 매핑하며, 업로드·글자 수·문자 세트·원본 색상 옵션과 명암 반전 버그 수정, 처리 속도 개선을 더함.",
+    "period": "2025.10",
+    "type": "개인",
+    "featured": false,
+    "tags": ["JavaScript", "Canvas", "Image Processing"],
+    "highlights": [],
+    "repo": "https://github.com/Kitbomin/ascii-art-js",
+    "page": null,
+    "demo": "projects/ascii-art/",
+    "demoLabel": "▶ 사용해 보기",
+    "image": "assets/img/ascii-art.jpg"
+  },
+  {
     "slug": "pet-shelter",
     "title": "유기동물 보호소 · 입양 관리",
     "summary": "보호소·보호 동물·입양 신청을 관리하는 웹 서비스. Spring Boot API와 React(TypeScript) 프론트를 분리한 팀 미니 프로젝트에서 보호소·동물 도메인 백엔드를 맡음 (팀 내 커밋 1위).",
